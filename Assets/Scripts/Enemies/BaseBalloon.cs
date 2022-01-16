@@ -76,7 +76,7 @@ public class BaseBalloon : MonoBehaviour
         int i = 0;
         foreach (BaseBalloon baseBalloon in releaseOnDeath)
         {
-            if(baseBalloon) EnemiesManager.Instance.EnemieSpawn(baseBalloon, followSpline.dist - i * 0.1f, damage);
+            if(baseBalloon) EnemiesManager.Instance.EnemieSpawn(baseBalloon, followSpline.dist - i * 0.3f, damage);
 
             i++;
         }
@@ -105,6 +105,6 @@ public class BaseBalloon : MonoBehaviour
 
     public float GetWorlHitBoxRadius()
     {
-        return hitBoxRadius * transform.localScale.x;
+        return hitBoxRadius * transform.localScale.x;   
     }
 }

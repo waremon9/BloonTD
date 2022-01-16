@@ -17,6 +17,7 @@ public class Explosiveprojectiles : BaseProjectile
     
     public override void BalloonHit(BaseBalloon balloon)
     {
+        base.BalloonHit(balloon);
         EndOfLife();
     }
 

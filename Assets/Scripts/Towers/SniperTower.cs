@@ -11,7 +11,7 @@ public class SniperTower : BaseTower
 
     protected override void Update()
     {
-        if (CanShoot() && TargetInRange())
+        if (CanShoot() && EnemiesManager.Instance.AtLeastOneBalloonAlive())
         {
             UpdateTarget();
             RotationLookAtTarget();
@@ -20,26 +20,9 @@ public class SniperTower : BaseTower
         }
     }
 
-    protected override bool TargetInRange()
-    {
-        return EnemiesManager.Instance.GetAllBalloon().Count != 0;
-    }
-
     protected override void UpdateTarget()
     {
-        List<BaseBalloon> allBalloon = EnemiesManager.Instance.GetAllBalloon();
-
-        BaseBalloon t = allBalloon[0];
-
-        foreach (BaseBalloon balloon in allBalloon)
-        {
-            if (balloon.FollowSpline.dist > t.FollowSpline.dist)
-            {
-                t = balloon;
-            }
-        }
-
-        target = t;
+        target = EnemiesManager.Instance.GetFirstBalloonInRange(transform.position, Mathf.Infinity);
     }
 
     protected override void UpdateRangeIndicator()

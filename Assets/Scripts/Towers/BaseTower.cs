@@ -41,32 +41,12 @@ public abstract class BaseTower : MonoBehaviour
 
     protected virtual void Update()
     {
-        UpdateBalloonInRange();
-        
-        if (CanShoot() && TargetInRange())
+        if (CanShoot() && EnemiesManager.Instance.AtLeastOneBalloonInRange(transform.position, range))
         {
-            CleanBalloonInRange();
-
-            if (TargetInRange())
-            {
-                UpdateTarget();
-                RotationLookAtTarget();
-                Shoot();
-                LastShoot = Time.time;
-            };
-        }
-    }
-
-    protected virtual void UpdateBalloonInRange()
-    {
-        BalloonsInRange.Clear();
-
-        foreach (BaseBalloon balloon in EnemiesManager.Instance.GetAllBalloon())
-        {
-            if (Vector3.Distance(transform.position, balloon.transform.position) <= range)
-            {
-                BalloonsInRange.Add(balloon);
-            }
+            UpdateTarget();
+            RotationLookAtTarget();
+            Shoot();
+            LastShoot = Time.time;
         }
     }
     
@@ -79,40 +59,12 @@ public abstract class BaseTower : MonoBehaviour
     {
         return Time.time >= LastShoot + reloadTime ;
     }
-
-    protected virtual bool TargetInRange()
-    {
-        return BalloonsInRange.Count != 0;
-    }
-
+    
     public abstract void Shoot();
     
     protected virtual void UpdateTarget()
     {
-        BaseBalloon t = BalloonsInRange[0];
-
-        foreach (BaseBalloon balloon in BalloonsInRange)
-        {
-            if (balloon.FollowSpline.dist > t.FollowSpline.dist)
-            {
-                t = balloon;
-            }
-        }
-        
-        target = t;
-    }
-    
-    //remove balloon dead while in range
-    private void CleanBalloonInRange()
-    {
-        for (int i = BalloonsInRange.Count - 1; i >= 0; i--)
-        {
-            if (BalloonsInRange[i]) 
-            {
-                continue;
-            }
-            BalloonsInRange.RemoveAt(i);
-        }
+        target = EnemiesManager.Instance.GetFirstBalloonInRange(transform.position, range);
     }
 
     public void EnableRangeIndicator(bool b)

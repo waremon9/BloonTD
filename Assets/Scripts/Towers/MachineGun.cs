@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-public class MachineGun : PierceTower
+public class MachineGun : BasicTower
 {
     [SerializeField] protected float weaponSpread;
 

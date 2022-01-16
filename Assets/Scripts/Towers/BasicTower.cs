@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PierceTower : BaseTower
+public class BasicTower : BaseTower
 {
     [Header("Bullet used")]
     [SerializeField] private PierceProjectile projectile;

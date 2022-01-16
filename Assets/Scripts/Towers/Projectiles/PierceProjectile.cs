@@ -13,6 +13,8 @@ public class PierceProjectile : BaseProjectile
     
     public override void BalloonHit(BaseBalloon balloon)
     {
+        base.BalloonHit(balloon);
+        
         if (balloon.IsResistant(projectileType))
         {
             EndOfLife();

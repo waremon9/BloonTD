@@ -98,6 +98,16 @@ public class EnemiesManager : MySingleton<EnemiesManager>
         return allBalloons.Count > 0;
     }
 
+    public bool AtLeastOneBalloonInRange(Vector3 position, float range)
+    {
+        foreach (BaseBalloon balloon in allBalloons)
+        {
+            if(Vector3.Distance(balloon.transform.position, position) <= range + balloon.GetWorlHitBoxRadius()) return true;
+        }
+
+        return false;
+    }
+
     public List<BaseBalloon> GetAllBalloon()
     {
         return allBalloons;

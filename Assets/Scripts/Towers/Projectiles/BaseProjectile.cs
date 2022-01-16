@@ -13,7 +13,9 @@ public abstract class BaseProjectile : MonoBehaviour
     public ProjectileType projectileType;
 
     [HideInInspector] public float hitBoxRadius;
-    
+
+    private List<BaseBalloon> allBalloonsHit = new List<BaseBalloon>();
+
     private void Start()
     {
         ProjectileManager.Instance.AddProjectile(this);
@@ -37,7 +39,11 @@ public abstract class BaseProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public abstract void BalloonHit(BaseBalloon balloon);
+    public virtual void BalloonHit(BaseBalloon balloon)
+    {
+        if(allBalloonsHit.Contains(balloon)) return;
+        allBalloonsHit.Add(balloon);
+    }
 }
 
 public enum ProjectileType{Standard, Fire, Ice};
