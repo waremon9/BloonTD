@@ -102,4 +102,9 @@ public class BaseBalloon : MonoBehaviour
 
         return false;
     }
+
+    public float GetWorlHitBoxRadius()
+    {
+        return hitBoxRadius * transform.localScale.x;
+    }
 }

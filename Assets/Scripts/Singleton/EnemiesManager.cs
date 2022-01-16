@@ -93,8 +93,61 @@ public class EnemiesManager : MySingleton<EnemiesManager>
         allBalloons.Remove(bs);
     }
 
+    public bool AtLeastOneBalloonAlive()
+    {
+        return allBalloons.Count > 0;
+    }
+
     public List<BaseBalloon> GetAllBalloon()
     {
         return allBalloons;
+    }
+
+    public BaseBalloon GetFirstBalloonInRange(Vector3 position, float range)
+    {
+        BaseBalloon target = allBalloons[0];
+        foreach (BaseBalloon balloon in allBalloons)
+        {
+            if(Vector3.Distance(balloon.transform.position, position) > range + balloon.GetWorlHitBoxRadius()) continue;
+            
+            if (balloon.FollowSpline.dist > target.FollowSpline.dist)
+            {
+                target = balloon;
+            }
+        }
+
+        return target;
+    }
+    public BaseBalloon GetLastBalloonInRange(Vector3 position, float range)
+    {
+        BaseBalloon target = allBalloons[0];
+        foreach (BaseBalloon balloon in allBalloons)
+        {
+            if(Vector3.Distance(balloon.transform.position, position) > range + balloon.GetWorlHitBoxRadius()) continue;
+            
+            if (balloon.FollowSpline.dist < target.FollowSpline.dist)
+            {
+                target = balloon;
+            }
+        }
+
+        return target;
+    }
+    public BaseBalloon GetClosestBalloonInRange(Vector3 position, float range)
+    {
+        BaseBalloon target = allBalloons[0];
+        float targetDistance = Vector3.Distance(target.transform.position, position);
+        
+        foreach (BaseBalloon balloon in allBalloons)
+        {
+            float distance = Vector3.Distance(balloon.transform.position, position);
+            if(distance <= range + balloon.GetWorlHitBoxRadius() && targetDistance>distance)
+            {
+                target = balloon;
+                targetDistance = distance;
+            }
+        }
+
+        return target;
     }
 }
