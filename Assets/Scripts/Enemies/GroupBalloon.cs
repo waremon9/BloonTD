@@ -12,6 +12,6 @@ public class GroupBalloon : HpBalloon
         int remainingDamage;
         if (hp >= 0) remainingDamage = 0;
         else remainingDamage = hp * -1;
-        EnemiesManager.Instance.EnemieSpawn(balloonLeak, FollowSpline.rate, remainingDamage);
+        EnemiesManager.Instance.EnemieSpawn(balloonLeak, FollowSpline.dist, remainingDamage);
     }
 }

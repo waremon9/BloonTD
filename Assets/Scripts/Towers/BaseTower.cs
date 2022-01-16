@@ -93,7 +93,7 @@ public abstract class BaseTower : MonoBehaviour
 
         foreach (BaseBalloon balloon in BalloonsInRange)
         {
-            if (balloon.FollowSpline.rate > t.FollowSpline.rate)
+            if (balloon.FollowSpline.dist > t.FollowSpline.dist)
             {
                 t = balloon;
             }

@@ -8,12 +8,16 @@ public class FollowSpline : MonoBehaviour
 {
     [HideInInspector] public Spline spline;
     
-    [HideInInspector] public float rate = 0;
-    private float durationInSecond;
+    [HideInInspector] public float dist = 0;
 
-    public void CalculateDurationInSecond(float ballonSpeed)
+    private BaseBalloon balloon;
+
+    private void Start()
     {
-        durationInSecond = spline.Length / ballonSpeed;
+        if (!TryGetComponent(out balloon))
+        {
+            Debug.Log("no balloon with the follow spline : "+name);
+        }
     }
 
     void Update()
@@ -24,35 +28,23 @@ public class FollowSpline : MonoBehaviour
             return;
         }
         
-        UpdateRate();
+        if(!balloon) return;
+        
+        UpdateDistance();
         UpdatePosition();
     }
 
-    public void UpdateRate()
+    public void UpdateDistance()
     {
         //stop when reach the end
-        if (rate < spline.nodes.Count - 1) {
-            
-            //some math so the speed is the same along the entire spline
-            float totalPathLength = spline.Length;
-            float actualCurveLenght;
-            if (rate < 0)
-            {
-                actualCurveLenght = spline.GetCurves()[0].Length;
-            }
-            else
-            {
-                actualCurveLenght = spline.GetCurves()[Mathf.FloorToInt(rate)].Length;
-            }
-            
-            float curvePercentOfTotalPath = totalPathLength / actualCurveLenght;
-            float durationForThisCurve = durationInSecond / curvePercentOfTotalPath;
-            
-            rate += Time.deltaTime / durationForThisCurve;
+        if (dist < spline.Length)
+        {
 
-            if (rate > spline.nodes.Count - 1)
+            dist += balloon.speed * Time.deltaTime;
+
+            if (dist > spline.Length)
             {
-                rate = spline.nodes.Count - 1;
+                dist = spline.Length;
             }
         }
         else
@@ -66,13 +58,13 @@ public class FollowSpline : MonoBehaviour
     public void UpdatePosition()
     {
         CurveSample sample;
-        if (rate < 0)
+        if (dist < 0)
         {
-            sample = spline.GetSample(0);
+            sample = spline.GetSampleAtDistance(0);
         }
         else
         {
-            sample = spline.GetSample(rate);
+            sample = spline.GetSampleAtDistance(dist);
         }
         
         transform.position = sample.location + spline.transform.localPosition;

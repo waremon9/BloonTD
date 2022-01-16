@@ -20,11 +20,10 @@ public class BaseBalloon : MonoBehaviour
 
     [HideInInspector] public float hitBoxRadius;
     
-    public void Initialize(Spline s, float speed, float rate = 0)
+    public void Initialize(Spline s, float speed, float dist = 0)
     {
         followSpline.spline = s;
-        followSpline.CalculateDurationInSecond(speed);
-        followSpline.rate = rate;
+        followSpline.dist = dist;
         
         followSpline.UpdatePosition();
     }
@@ -77,7 +76,7 @@ public class BaseBalloon : MonoBehaviour
         int i = 0;
         foreach (BaseBalloon baseBalloon in releaseOnDeath)
         {
-            if(baseBalloon) EnemiesManager.Instance.EnemieSpawn(baseBalloon, followSpline.rate - i * 0.05f, damage);
+            if(baseBalloon) EnemiesManager.Instance.EnemieSpawn(baseBalloon, followSpline.dist - i * 0.1f, damage);
 
             i++;
         }
