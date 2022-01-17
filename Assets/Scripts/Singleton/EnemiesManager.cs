@@ -27,11 +27,11 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            EnemieSpawn(e);
+            EnemieSpawnAtStart(e);
         }
         if (Input.GetKey(KeyCode.T))
         {
-            EnemieSpawn(e);
+            EnemieSpawnAtStart(e);
         }
         
         if (Input.GetKeyDown(KeyCode.O))
@@ -66,24 +66,27 @@ public class EnemiesManager : MySingleton<EnemiesManager>
         
         for (int i = 0; i < group.qte; i++)
         {
-            EnemieSpawn(group.enemyType);
+            EnemieSpawnAtStart(group.enemyType);
             yield return new WaitForSeconds(group.loopInterval);
         }
     }
 
     //To spawn new balloon
-    private void EnemieSpawn(BalloonScriptable balloon)
+    public void EnemieSpawnAtStart(BalloonScriptable balloon)
     {
         NewBalloonLogic bs = Instantiate(balloonPrefab, enemiesParent);
         bs.UpdateStats(balloon);
         
         allBalloons.Add(bs);
     }
+    
     //To spawn balloon on balloon death
-    public void EnemieSpawn(BalloonScriptable balloon, float rate, int damage)
+    public void EnemieSpawnFromRelease(BalloonScriptable balloon, NewBalloonLogic parent ,float offset, int damage)
     {
         NewBalloonLogic bs = Instantiate(balloonPrefab, enemiesParent);
         bs.UpdateStats(balloon);
+        bs.followSpline.dist = parent.followSpline.dist - offset;
+        bs.ProjectilesHit = new List<BaseProjectile>(parent.ProjectilesHit);
         
         allBalloons.Add(bs);
         

@@ -39,12 +39,7 @@ public abstract class BaseProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public virtual bool BalloonHit(NewBalloonLogic balloon)
-    {
-        if(allBalloonsHit.Contains(balloon)) return true;
-        allBalloonsHit.Add(balloon);
-        return false;
-    }
+    public abstract void BalloonHit(NewBalloonLogic balloon);
 }
 
 public enum ProjectileType{Standard, Fire, Ice};

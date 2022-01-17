@@ -19,7 +19,7 @@ public class BalloonScriptable : ScriptableObject
     
     public bool MoreThanOneOnRelease()
    {
-       return releaseOnDeath.Length > 1 && releaseOnDeath[0].qte > 1;
+       return  releaseOnDeath.Length > 0 && releaseOnDeath[0].qte > 1 || releaseOnDeath.Length > 1;
    }
 
     public bool IsLastLayer()

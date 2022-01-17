@@ -76,7 +76,7 @@ public class BaseBalloon : MonoBehaviour
         int i = 0;
         foreach (BaseBalloon baseBalloon in releaseOnDeath)
         {
-            if(baseBalloon) EnemiesManager.Instance.EnemieSpawn(baseBalloon, followSpline.dist - i * 0.3f, damage);
+            if(baseBalloon) EnemiesManager.Instance.EnemieSpawnFromRelease(baseBalloon, followSpline.dist - i * 0.3f, damage);
 
             i++;
         }

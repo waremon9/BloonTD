@@ -24,7 +24,6 @@ public abstract class BaseTower : MonoBehaviour
     [SerializeField] private float reloadTime;
     protected float LastShoot = -9999f;
 
-    private List<NewBalloonLogic> BalloonsInRange = new List<NewBalloonLogic>();
     protected BaseProjectile tempProjCreated;
 
     protected NewBalloonLogic target;

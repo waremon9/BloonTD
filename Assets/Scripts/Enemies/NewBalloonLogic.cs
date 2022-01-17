@@ -10,6 +10,8 @@ public class NewBalloonLogic : MonoBehaviour
     public FollowSpline followSpline;
     public float hitBoxRadius;
 
+    public List<BaseProjectile> ProjectilesHit;
+
     public void UpdateStats(BalloonScriptable balloonStats)
     {
         balloonBaseData = balloonStats;
@@ -80,7 +82,6 @@ public class NewBalloonLogic : MonoBehaviour
             return;
         }
         
-        UpdateStats(balloonBaseData.releaseOnDeath[0].Balloon);
         
         if (balloonBaseData.MoreThanOneOnRelease())
         {
@@ -96,11 +97,13 @@ public class NewBalloonLogic : MonoBehaviour
                         continue;
                     }
                     
-                    EnemiesManager.Instance.EnemieSpawn(data.Balloon, followSpline.dist - nb * 0.3f, damage);
+                    EnemiesManager.Instance.EnemieSpawnFromRelease(data.Balloon,this, nb * 0.3f, damage);
                     nb++;
                 }
             }
         }
+        
+        UpdateStats(balloonBaseData.releaseOnDeath[0].Balloon);
     }
 
     private void Death()
@@ -112,5 +115,19 @@ public class NewBalloonLogic : MonoBehaviour
     public float GetWorlHitBoxRadius()
     {
         return hitBoxRadius * transform.localScale.x;   
+    }
+
+    public bool NewProjectileHit(BaseProjectile proj)
+    {
+        if (ProjectilesHit.Contains(proj))
+        {
+            return false;
+        }
+        else
+        {
+            ProjectilesHit.Add(proj);
+            return true;
+        }
+        
     }
 }

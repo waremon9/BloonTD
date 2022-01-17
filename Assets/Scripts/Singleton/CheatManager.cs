@@ -22,7 +22,7 @@ public class CheatManager : MySingleton<CheatManager>
     {
         for (int i = 0; i < qte; i++)
         {
-            EnemiesManager.Instance.EnemieSpawn(balloon,0,0);
+            EnemiesManager.Instance.EnemieSpawnAtStart(balloon);
             yield return new WaitForSeconds(0.01f);
         }
     }

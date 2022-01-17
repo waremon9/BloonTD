@@ -15,11 +15,9 @@ public class Explosiveprojectiles : BaseProjectile
         explosionRange = range;
     }
     
-    public override bool BalloonHit(NewBalloonLogic balloon)
+    public override void BalloonHit(NewBalloonLogic balloon)
     {
-        if(base.BalloonHit(balloon)) return true;
         EndOfLife();
-        return false;
     }
 
     public override void EndOfLife()

@@ -12,7 +12,7 @@ public class FollowSpline : MonoBehaviour
 
     private NewBalloonLogic balloon;
 
-    private void Start()
+    private void Awake()
     {
         if (!TryGetComponent(out balloon))
         {
@@ -20,6 +20,8 @@ public class FollowSpline : MonoBehaviour
         }
 
         spline = EnemiesManager.Instance.path;
+        
+        UpdatePosition();
     }
 
     void Update()
