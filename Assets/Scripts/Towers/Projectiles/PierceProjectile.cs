@@ -11,14 +11,14 @@ public class PierceProjectile : BaseProjectile
         piercePower = p;
     }
     
-    public override void BalloonHit(BaseBalloon balloon)
+    public override bool BalloonHit(NewBalloonLogic balloon)
     {
-        base.BalloonHit(balloon);
+        if (base.BalloonHit(balloon)) return true;
         
         if (balloon.IsResistant(projectileType))
         {
             EndOfLife();
-            return;
+            return true;
         }
         
         balloon.Hit(damage);
@@ -28,5 +28,7 @@ public class PierceProjectile : BaseProjectile
         {
             EndOfLife();
         }
+
+        return false;
     }
 }

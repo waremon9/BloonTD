@@ -30,7 +30,7 @@ public class ProjectileManager : MySingleton<ProjectileManager>
     {
         foreach (BaseProjectile projectile in AllProjectile)
         {
-            foreach (BaseBalloon balloon in EnemiesManager.Instance.GetAllBalloon())
+            foreach (NewBalloonLogic balloon in EnemiesManager.Instance.GetAllBalloon())
             {
                 if (Vector2.Distance(balloon.transform.position, projectile.transform.position) <=
                     balloon.hitBoxRadius + projectile.hitBoxRadius)

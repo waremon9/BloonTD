@@ -6,7 +6,7 @@ public class CheatManager : MySingleton<CheatManager>
 {
     public override bool DoDestroyOnLoad { get; }
 
-    public BaseBalloon balloon;
+    public BalloonScriptable balloon;
     public int qte;
     
     // Update is called once per frame

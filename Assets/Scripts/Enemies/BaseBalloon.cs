@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using SplineMesh;
 using UnityEngine;
 using UnityEngine.Serialization;
-
+/*
 public class BaseBalloon : MonoBehaviour
 {
     public float speed = 1;
@@ -108,3 +108,4 @@ public class BaseBalloon : MonoBehaviour
         return hitBoxRadius * transform.localScale.x;   
     }
 }
+*/

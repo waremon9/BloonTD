@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroupBalloon : HpBalloon
 {
-    [SerializeField] private BaseBalloon balloonLeak;
+    [SerializeField] private BalloonScriptable balloonLeak;
     
     protected override void TakeDamage(int damage)
     {
@@ -12,6 +12,6 @@ public class GroupBalloon : HpBalloon
         int remainingDamage;
         if (hp >= 0) remainingDamage = 0;
         else remainingDamage = hp * -1;
-        EnemiesManager.Instance.EnemieSpawn(balloonLeak, FollowSpline.dist, remainingDamage);
+        EnemiesManager.Instance.EnemieSpawn(balloonLeak, followSpline.dist, remainingDamage);
     }
 }

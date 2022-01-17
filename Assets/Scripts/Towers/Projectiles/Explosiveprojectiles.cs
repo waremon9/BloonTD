@@ -15,10 +15,11 @@ public class Explosiveprojectiles : BaseProjectile
         explosionRange = range;
     }
     
-    public override void BalloonHit(BaseBalloon balloon)
+    public override bool BalloonHit(NewBalloonLogic balloon)
     {
-        base.BalloonHit(balloon);
+        if(base.BalloonHit(balloon)) return true;
         EndOfLife();
+        return false;
     }
 
     public override void EndOfLife()
@@ -29,7 +30,7 @@ public class Explosiveprojectiles : BaseProjectile
 
     protected void ExplosionDamageBalloon()
     {
-        foreach (BaseBalloon b in EnemiesManager.Instance.enemiesParent.GetComponentsInChildren<BaseBalloon>())
+        foreach (NewBalloonLogic b in EnemiesManager.Instance.enemiesParent.GetComponentsInChildren<NewBalloonLogic>())
         {
             if ((b.transform.position - transform.position).magnitude < explosionRange)
             {

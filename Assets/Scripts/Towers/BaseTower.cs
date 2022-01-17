@@ -24,10 +24,10 @@ public abstract class BaseTower : MonoBehaviour
     [SerializeField] private float reloadTime;
     protected float LastShoot = -9999f;
 
-    private List<BaseBalloon> BalloonsInRange = new List<BaseBalloon>();
+    private List<NewBalloonLogic> BalloonsInRange = new List<NewBalloonLogic>();
     protected BaseProjectile tempProjCreated;
 
-    protected BaseBalloon target;
+    protected NewBalloonLogic target;
     
     private void Start()
     {

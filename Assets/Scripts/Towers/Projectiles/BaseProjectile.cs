@@ -14,7 +14,7 @@ public abstract class BaseProjectile : MonoBehaviour
 
     [HideInInspector] public float hitBoxRadius;
 
-    private List<BaseBalloon> allBalloonsHit = new List<BaseBalloon>();
+    private List<NewBalloonLogic> allBalloonsHit = new List<NewBalloonLogic>();
 
     private void Start()
     {
@@ -39,10 +39,11 @@ public abstract class BaseProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public virtual void BalloonHit(BaseBalloon balloon)
+    public virtual bool BalloonHit(NewBalloonLogic balloon)
     {
-        if(allBalloonsHit.Contains(balloon)) return;
+        if(allBalloonsHit.Contains(balloon)) return true;
         allBalloonsHit.Add(balloon);
+        return false;
     }
 }
 

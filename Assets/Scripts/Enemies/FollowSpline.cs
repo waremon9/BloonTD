@@ -10,7 +10,7 @@ public class FollowSpline : MonoBehaviour
     
     [HideInInspector] public float dist = 0;
 
-    private BaseBalloon balloon;
+    private NewBalloonLogic balloon;
 
     private void Start()
     {
@@ -18,6 +18,8 @@ public class FollowSpline : MonoBehaviour
         {
             Debug.Log("no balloon with the follow spline : "+name);
         }
+
+        spline = EnemiesManager.Instance.path;
     }
 
     void Update()
@@ -40,7 +42,7 @@ public class FollowSpline : MonoBehaviour
         if (dist < spline.Length)
         {
 
-            dist += balloon.speed * Time.deltaTime;
+            dist += balloon.balloonBaseData.speed * Time.deltaTime;
 
             if (dist > spline.Length)
             {
@@ -49,7 +51,7 @@ public class FollowSpline : MonoBehaviour
         }
         else
         {
-            EnemiesManager.Instance.BalloonDead(GetComponent<BaseBalloon>());
+            EnemiesManager.Instance.BalloonDead(GetComponent<NewBalloonLogic>());
             
             Destroy(gameObject);//reached the end of the spline
         }

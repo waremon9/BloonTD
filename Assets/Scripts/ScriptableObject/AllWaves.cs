@@ -9,7 +9,7 @@ public class AllWaves : ScriptableObject
     [Serializable]
     public struct EnemyGroup
     {
-        public BaseBalloon enemyType;
+        public BalloonScriptable enemyType;
         public  int qte;
         public float firstInterval;
         public float loopInterval;

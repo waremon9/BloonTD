@@ -8,9 +8,9 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 {
     public override bool DoDestroyOnLoad { get; }
 
-    [SerializeField] private Spline path;
+    public Spline path;
 
-    public BaseBalloon e;
+    public BalloonScriptable e;
     public Transform enemiesParent;
 
     [SerializeField] private AllWaves allWaves;
@@ -19,7 +19,9 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
     [SerializeField] public ParticleSystem BalloonPopEffect;
 
-    private List<BaseBalloon> allBalloons = new List<BaseBalloon>();
+    private List<NewBalloonLogic> allBalloons = new List<NewBalloonLogic>();
+
+    public NewBalloonLogic balloonPrefab;
 
     private void Update()
     {
@@ -70,25 +72,25 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     }
 
     //To spawn new balloon
-    private void EnemieSpawn(BaseBalloon balloon)
+    private void EnemieSpawn(BalloonScriptable balloon)
     {
-        BaseBalloon bs = Instantiate(balloon, enemiesParent);
-        bs.Initialize(path, bs.speed);
+        NewBalloonLogic bs = Instantiate(balloonPrefab, enemiesParent);
+        bs.UpdateStats(balloon);
         
         allBalloons.Add(bs);
     }
     //To spawn balloon on balloon death
-    public void EnemieSpawn(BaseBalloon balloon, float rate, int damage)
+    public void EnemieSpawn(BalloonScriptable balloon, float rate, int damage)
     {
-        BaseBalloon bs = Instantiate(balloon, enemiesParent);
-        bs.Initialize(path, bs.speed, rate);
+        NewBalloonLogic bs = Instantiate(balloonPrefab, enemiesParent);
+        bs.UpdateStats(balloon);
         
         allBalloons.Add(bs);
         
         bs.Hit(damage);
     }
 
-    public void BalloonDead(BaseBalloon bs)
+    public void BalloonDead(NewBalloonLogic bs)
     {
         allBalloons.Remove(bs);
     }
@@ -100,7 +102,7 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
     public bool AtLeastOneBalloonInRange(Vector3 position, float range)
     {
-        foreach (BaseBalloon balloon in allBalloons)
+        foreach (NewBalloonLogic balloon in allBalloons)
         {
             if(Vector3.Distance(balloon.transform.position, position) <= range + balloon.GetWorlHitBoxRadius()) return true;
         }
@@ -108,19 +110,19 @@ public class EnemiesManager : MySingleton<EnemiesManager>
         return false;
     }
 
-    public List<BaseBalloon> GetAllBalloon()
+    public List<NewBalloonLogic> GetAllBalloon()
     {
         return allBalloons;
     }
 
-    public BaseBalloon GetFirstBalloonInRange(Vector3 position, float range)
+    public NewBalloonLogic GetFirstBalloonInRange(Vector3 position, float range)
     {
-        BaseBalloon target = allBalloons[0];
-        foreach (BaseBalloon balloon in allBalloons)
+        NewBalloonLogic target = allBalloons[0];
+        foreach (NewBalloonLogic balloon in allBalloons)
         {
             if(Vector3.Distance(balloon.transform.position, position) > range + balloon.GetWorlHitBoxRadius()) continue;
             
-            if (balloon.FollowSpline.dist > target.FollowSpline.dist)
+            if (balloon.followSpline.dist > target.followSpline.dist)
             {
                 target = balloon;
             }
@@ -128,14 +130,14 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
         return target;
     }
-    public BaseBalloon GetLastBalloonInRange(Vector3 position, float range)
+    public NewBalloonLogic GetLastBalloonInRange(Vector3 position, float range)
     {
-        BaseBalloon target = allBalloons[0];
-        foreach (BaseBalloon balloon in allBalloons)
+        NewBalloonLogic target = allBalloons[0];
+        foreach (NewBalloonLogic balloon in allBalloons)
         {
             if(Vector3.Distance(balloon.transform.position, position) > range + balloon.GetWorlHitBoxRadius()) continue;
             
-            if (balloon.FollowSpline.dist < target.FollowSpline.dist)
+            if (balloon.followSpline.dist < target.followSpline.dist)
             {
                 target = balloon;
             }
@@ -143,12 +145,12 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
         return target;
     }
-    public BaseBalloon GetClosestBalloonInRange(Vector3 position, float range)
+    public NewBalloonLogic GetClosestBalloonInRange(Vector3 position, float range)
     {
-        BaseBalloon target = allBalloons[0];
+        NewBalloonLogic target = allBalloons[0];
         float targetDistance = Vector3.Distance(target.transform.position, position);
         
-        foreach (BaseBalloon balloon in allBalloons)
+        foreach (NewBalloonLogic balloon in allBalloons)
         {
             float distance = Vector3.Distance(balloon.transform.position, position);
             if(distance <= range + balloon.GetWorlHitBoxRadius() && targetDistance>distance)

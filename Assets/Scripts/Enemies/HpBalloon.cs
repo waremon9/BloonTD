@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HpBalloon : BaseBalloon
+public class HpBalloon : NewBalloonLogic
 {
     [SerializeField] protected int hp;
 
@@ -11,7 +11,7 @@ public class HpBalloon : BaseBalloon
         TakeDamage(damage);
         if (hp <= 0)
         {
-            Death(hp * -1);
+            LayerPop(hp * -1);
         }
     }
 
