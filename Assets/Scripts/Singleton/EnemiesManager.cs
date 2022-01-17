@@ -107,7 +107,9 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     {
         foreach (NewBalloonLogic balloon in allBalloons)
         {
-            if(Vector3.Distance(balloon.transform.position, position) <= range + balloon.GetWorlHitBoxRadius()) return true;
+            float distance = Vector3.Distance(balloon.transform.position, position);
+            float outOfRange = range + balloon.GetWorlHitBoxRadius();
+            if( distance <= outOfRange) return true;
         }
 
         return false;
@@ -120,10 +122,15 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
     public NewBalloonLogic GetFirstBalloonInRange(Vector3 position, float range)
     {
-        NewBalloonLogic target = allBalloons[0];
+        NewBalloonLogic target = null;
         foreach (NewBalloonLogic balloon in allBalloons)
         {
-            if(Vector3.Distance(balloon.transform.position, position) > range + balloon.GetWorlHitBoxRadius()) continue;
+            float distance = Vector3.Distance(balloon.transform.position, position);
+            float outOfRange = range + balloon.GetWorlHitBoxRadius();
+            
+            if(distance > outOfRange) continue;
+
+            if (!target) target = balloon;
             
             if (balloon.followSpline.dist > target.followSpline.dist)
             {

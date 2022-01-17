@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b862441aa086854db9675ecd53bb040, type: 3}
   m_Name: PinkBalloon
   m_EditorClassIdentifier: Assembly-CSharp::BalloonSciptable
-  sprite: {fileID: 21300000, guid: 8b590ac1fe4ad6f4aa8c8019f58e3ffe, type: 3}
-  size: 0.28
-  speed: 1.5
+  sprite: {fileID: 21300000, guid: 39dfb8c30caa8054f94e3e9365095223, type: 3}
+  size: 0.48
+  speed: 4
   hp: 1
   resistance: 
-  releaseOnDeath: []
+  releaseOnDeath:
+  - qte: 1
+    Balloon: {fileID: 11400000, guid: 54b5f1ce14cb1d94c8c453e508f74b14, type: 2}
