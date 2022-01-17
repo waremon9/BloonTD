@@ -26,7 +26,7 @@ public abstract class BaseTower : MonoBehaviour
 
     protected BaseProjectile tempProjCreated;
 
-    protected NewBalloonLogic target;
+    protected BaseBalloon target;
     
     private void Start()
     {

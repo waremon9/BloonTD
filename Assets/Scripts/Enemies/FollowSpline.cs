@@ -10,7 +10,7 @@ public class FollowSpline : MonoBehaviour
     
     [HideInInspector] public float dist = 0;
 
-    private NewBalloonLogic balloon;
+    private BaseBalloon balloon;
 
     private void Awake()
     {
@@ -53,7 +53,7 @@ public class FollowSpline : MonoBehaviour
         }
         else
         {
-            EnemiesManager.Instance.BalloonDead(GetComponent<NewBalloonLogic>());
+            EnemiesManager.Instance.BalloonDead(GetComponent<BaseBalloon>());
             
             Destroy(gameObject);//reached the end of the spline
         }

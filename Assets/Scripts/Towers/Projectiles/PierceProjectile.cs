@@ -11,7 +11,7 @@ public class PierceProjectile : BaseProjectile
         piercePower = p;
     }
     
-    public override void BalloonHit(NewBalloonLogic balloon)
+    public override void BalloonHit(BaseBalloon balloon)
     {
         if (balloon.IsResistant(projectileType))
         {

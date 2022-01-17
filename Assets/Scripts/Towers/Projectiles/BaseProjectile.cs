@@ -14,7 +14,7 @@ public abstract class BaseProjectile : MonoBehaviour
 
     [HideInInspector] public float hitBoxRadius;
 
-    private List<NewBalloonLogic> allBalloonsHit = new List<NewBalloonLogic>();
+    private List<BaseBalloon> allBalloonsHit = new List<BaseBalloon>();
 
     private void Start()
     {
@@ -39,7 +39,7 @@ public abstract class BaseProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public abstract void BalloonHit(NewBalloonLogic balloon);
+    public abstract void BalloonHit(BaseBalloon balloon);
 }
 
 public enum ProjectileType{Standard, Fire, Ice};

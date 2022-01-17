@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroupBalloon : HpBalloon
+public class GroupBalloon : BaseBalloon
 {
-    [SerializeField] private BalloonScriptable balloonLeak;
+    public BalloonScriptable balloonLeak;
     
     protected override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
-        int remainingDamage;
-        if (hp >= 0) remainingDamage = 0;
-        else remainingDamage = hp * -1;
-        EnemiesManager.Instance.EnemieSpawnFromRelease(balloonLeak, this ,0, remainingDamage);
+
+        int remainingDamage = hpActual > 0 ? 0 : hpActual * -1;
+        int qteToLeak = hpActual > 0 ? damage : damage + hpActual;
+
+        for (int i = 0; i < qteToLeak; i++)
+        {
+            EnemiesManager.Instance.EnemieSpawnFromRelease(balloonLeak, this ,0, remainingDamage);
+        }
     }
 }

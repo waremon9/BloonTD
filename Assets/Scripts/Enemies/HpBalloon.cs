@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HpBalloon : NewBalloonLogic
+public class HpBalloon : BaseBalloon
 {
     [SerializeField] protected int hp;
 
