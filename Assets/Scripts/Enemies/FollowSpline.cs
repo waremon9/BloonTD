@@ -44,7 +44,7 @@ public class FollowSpline : MonoBehaviour
         if (dist < spline.Length)
         {
 
-            dist += balloon.balloonBaseData.speed * Time.deltaTime;
+            dist += balloon.basicBalloonBaseData.speed * Time.deltaTime;
 
             if (dist > spline.Length)
             {

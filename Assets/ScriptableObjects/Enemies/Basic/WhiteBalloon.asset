@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b862441aa086854db9675ecd53bb040, type: 3}
-  m_Name: DarkBalloon
+  m_Name: WhiteBalloon
   m_EditorClassIdentifier: Assembly-CSharp::BalloonSciptable
-  sprite: {fileID: 21300000, guid: 726cf6dc0dad7f14bb0b9ff97e703df2, type: 3}
+  sprite: {fileID: 21300000, guid: 116cdab45bc782a4bb62a6df1c6f6831, type: 3}
   size: 0.28
   speed: 3
   hp: 1
-  resistance: 01000000
+  resistance: 02000000
   releaseOnDeath:
   - qte: 2
-    Balloon: {fileID: 11400000, guid: 920e77b60e40107408e40a5ab7f250a4, type: 2}
+    basicBalloon: {fileID: 11400000, guid: 920e77b60e40107408e40a5ab7f250a4, type: 2}

@@ -10,7 +10,7 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
     public Spline path;
 
-    public BalloonScriptable e;
+    public BasicBalloonScriptable e;
     public Transform enemiesParent;
 
     [SerializeField] private AllWaves allWaves;
@@ -72,25 +72,26 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     }
 
     //To spawn new balloon
-    public void EnemieSpawnAtStart(BalloonScriptable balloon)
+    public void EnemieSpawnAtStart(BasicBalloonScriptable scriptable)
     {
-        BaseBalloon bs = Instantiate(balloonPrefab, enemiesParent);
-        bs.UpdateStats(balloon);
+        BaseBalloon bb = Instantiate(balloonPrefab, enemiesParent);
         
-        allBalloons.Add(bs);
+        bb.UpdateStats(scriptable);
+        allBalloons.Add(bb);
     }
     
     //To spawn balloon on balloon death
-    public void EnemieSpawnFromRelease(BalloonScriptable balloon, BaseBalloon parent ,float offset, int damage)
+    public void EnemieSpawnFromRelease(BasicBalloonScriptable scriptable, BaseBalloon parent ,float offset, int damage)
     {
-        BaseBalloon bs = Instantiate(balloonPrefab, enemiesParent);
-        bs.UpdateStats(balloon);
-        bs.followSpline.dist = parent.followSpline.dist - offset;
-        bs.ProjectilesHit = new List<BaseProjectile>(parent.ProjectilesHit);
+        BaseBalloon bb = Instantiate(balloonPrefab, enemiesParent);
         
-        allBalloons.Add(bs);
+        bb.UpdateStats(scriptable);
+        bb.followSpline.dist = parent.followSpline.dist - offset;
+        bb.ProjectilesHit = new List<BaseProjectile>(parent.ProjectilesHit);
         
-        bs.Hit(damage);
+        allBalloons.Add(bb);
+        
+        bb.Hit(damage);
     }
 
     public void BalloonDead(BaseBalloon bs)

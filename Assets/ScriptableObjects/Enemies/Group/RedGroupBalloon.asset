@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b862441aa086854db9675ecd53bb040, type: 3}
-  m_Name: YellowBalloon
-  m_EditorClassIdentifier: Assembly-CSharp::BalloonSciptable
-  sprite: {fileID: 21300000, guid: 87df466968c7de240841ea712fb01801, type: 3}
-  size: 0.42
-  speed: 3.5
-  hp: 1
+  m_Name: RedGroupBalloon
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 87aaddc8857cf6b429cba08a720c029e, type: 3}
+  size: 0.6
+  speed: 1
+  hp: 5
   resistance: 
   releaseOnDeath:
-  - qte: 1
-    Balloon: {fileID: 11400000, guid: 4744cd698fe69fb479881e44ce5ba8b7, type: 2}
+  - qte: 5
+    basicBalloon: {fileID: 11400000, guid: 33f980ab268305646adb7fc2cd0cef96, type: 2}

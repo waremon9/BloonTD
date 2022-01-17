@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b862441aa086854db9675ecd53bb040, type: 3}
-  m_Name: HpBalloon
+  m_Name: BlueGroupBalloon
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 60f0da1f31444184f984995c3e02bb62, type: 3}
-  size: 0.4
-  speed: 2
+  sprite: {fileID: 21300000, guid: 256a3141621f8d447a3866fe49bfdbba, type: 3}
+  size: 0.66
+  speed: 1.25
   hp: 5
   resistance: 
   releaseOnDeath:
-  - qte: 4
-    Balloon: {fileID: 11400000, guid: 920e77b60e40107408e40a5ab7f250a4, type: 2}
+  - qte: 1
+    basicBalloon: {fileID: 11400000, guid: babb14be0deb0fb448f96bae6740cbc5, type: 2}
+  - qte: 5
+    basicBalloon: {fileID: 11400000, guid: 6718c711fe0da7749820b0e56b7984e9, type: 2}

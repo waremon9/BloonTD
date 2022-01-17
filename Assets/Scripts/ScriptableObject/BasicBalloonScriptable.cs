@@ -5,7 +5,7 @@ using Unity.Mathematics;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Enemy")]
-public class BalloonScriptable : ScriptableObject
+public class BasicBalloonScriptable : ScriptableObject
 {
     [Header("Graphic")]
     public Sprite sprite;
@@ -32,7 +32,7 @@ public class BalloonScriptable : ScriptableObject
 public struct ReleaseOnDeath
 {
     public int qte;
-    public BalloonScriptable Balloon;
+    public BasicBalloonScriptable basicBalloon;
 
     
 }

@@ -6,7 +6,7 @@ public class CheatManager : MySingleton<CheatManager>
 {
     public override bool DoDestroyOnLoad { get; }
 
-    public BalloonScriptable balloon;
+    public BasicBalloonScriptable basicBalloon;
     public int qte;
     
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class CheatManager : MySingleton<CheatManager>
     {
         for (int i = 0; i < qte; i++)
         {
-            EnemiesManager.Instance.EnemieSpawnAtStart(balloon);
+            EnemiesManager.Instance.EnemieSpawnAtStart(basicBalloon);
             yield return new WaitForSeconds(0.01f);
         }
     }

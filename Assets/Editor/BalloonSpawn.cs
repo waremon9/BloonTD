@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(BalloonScriptable))]
+[CustomEditor(typeof(BasicBalloonScriptable))]
 public class BalloonSpawn : Editor
 {
     public override void OnInspectorGUI()
@@ -14,7 +14,7 @@ public class BalloonSpawn : Editor
         {
             if (GUILayout.Button("spawn balloon"))
             {
-                EnemiesManager.Instance.EnemieSpawnAtStart((BalloonScriptable)target);
+                EnemiesManager.Instance.EnemieSpawnAtStart((BasicBalloonScriptable)target);
             }
         }
     }

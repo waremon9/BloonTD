@@ -19,4 +19,4 @@ MonoBehaviour:
   resistance: 
   releaseOnDeath:
   - qte: 1
-    Balloon: {fileID: 11400000, guid: 33f980ab268305646adb7fc2cd0cef96, type: 2}
+    basicBalloon: {fileID: 11400000, guid: 33f980ab268305646adb7fc2cd0cef96, type: 2}

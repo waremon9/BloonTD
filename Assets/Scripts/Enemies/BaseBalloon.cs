@@ -6,26 +6,26 @@ using UnityEngine;
 
 public class BaseBalloon : MonoBehaviour
 {
-    public BalloonScriptable balloonBaseData;
+    public BasicBalloonScriptable basicBalloonBaseData;
     public FollowSpline followSpline;
     public float hitBoxRadius;
     public int hpActual;
 
     public List<BaseProjectile> ProjectilesHit;
 
-    public void UpdateStats(BalloonScriptable balloonStats)
+    public void UpdateStats(BasicBalloonScriptable basicBalloonStats)
     {
-        balloonBaseData = balloonStats;
+        basicBalloonBaseData = basicBalloonStats;
         if (TryGetComponent(out SpriteRenderer spriteRenderer))
         {
-            spriteRenderer.sprite = balloonBaseData.sprite;
+            spriteRenderer.sprite = basicBalloonBaseData.sprite;
         }
 
-        hpActual = balloonBaseData.hp;
-        transform.localScale = Vector2.one * balloonBaseData.size;
+        hpActual = basicBalloonBaseData.hp;
+        transform.localScale = Vector2.one * basicBalloonBaseData.size;
     }
     
-    private void Start()
+    protected virtual void Start()
     {
         if (!followSpline)
         {
@@ -62,10 +62,10 @@ public class BaseBalloon : MonoBehaviour
     
     public bool IsResistant(ProjectileType type)
     {
-        return balloonBaseData.resistance.Contains(type);
+        return basicBalloonBaseData.resistance.Contains(type);
     }
 
-    private void PlayPopEffect()
+    protected void PlayPopEffect()
     {
         if (EnemiesManager.Instance.BalloonPopEffect && GameManager.Instance.particleParent)
         {
@@ -82,22 +82,22 @@ public class BaseBalloon : MonoBehaviour
         }
     }
     
-    protected void LayerPop(int damage = 0)
+    protected virtual void LayerPop(int damage = 0)
     {
         PlayPopEffect();
 
-        if (balloonBaseData.IsLastLayer())
+        if (basicBalloonBaseData.IsLastLayer())
         {
             Death();
             return;
         }
         
         
-        if (balloonBaseData.MoreThanOneOnRelease())
+        if (basicBalloonBaseData.MoreThanOneOnRelease())
         {
             bool firstSkipped = false;
             int nb = 1;
-            foreach (ReleaseOnDeath data in balloonBaseData.releaseOnDeath)
+            foreach (ReleaseOnDeath data in basicBalloonBaseData.releaseOnDeath)
             {
                 for (int i = 0; i < data.qte; i++)
                 {
@@ -107,16 +107,16 @@ public class BaseBalloon : MonoBehaviour
                         continue;
                     }
                     
-                    EnemiesManager.Instance.EnemieSpawnFromRelease(data.Balloon,this, nb * 0.3f, damage);
+                    EnemiesManager.Instance.EnemieSpawnFromRelease(data.basicBalloon,this, nb * 0.3f, damage);
                     nb++;
                 }
             }
         }
         
-        UpdateStats(balloonBaseData.releaseOnDeath[0].Balloon);
+        UpdateStats(basicBalloonBaseData.releaseOnDeath[0].basicBalloon);
     }
 
-    private void Death()
+    protected void Death()
     {
         EnemiesManager.Instance.BalloonDead(this);
         Destroy(gameObject);
