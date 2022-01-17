@@ -19,8 +19,6 @@ public class PierceProjectile : BaseProjectile
             return;
         }
         
-        if(!balloon.NewProjectileHit(this)) return;
-        
         balloon.Hit(damage);
         
         piercePower--;

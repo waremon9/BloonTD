@@ -32,9 +32,12 @@ public class ProjectileManager : MySingleton<ProjectileManager>
         {
             foreach (NewBalloonLogic balloon in EnemiesManager.Instance.GetAllBalloon())
             {
+                    
                 if (Vector2.Distance(balloon.transform.position, projectile.transform.position) <=
                     balloon.hitBoxRadius + projectile.hitBoxRadius)
                 {
+                    if(!balloon.NewProjectileHit(projectile)) continue;
+                    
                     projectile.BalloonHit(balloon);
                     return;
                 }

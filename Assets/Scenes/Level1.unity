@@ -460,12 +460,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 845249048732213427, guid: 5f22e83135a2e7e408ef5d2ff10b2e75, type: 3}
+      propertyPath: range
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 845249048732213427, guid: 5f22e83135a2e7e408ef5d2ff10b2e75, type: 3}
+      propertyPath: reloadTime
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 845249048732213427, guid: 5f22e83135a2e7e408ef5d2ff10b2e75, type: 3}
       propertyPath: piercePower
-      value: 2
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 845249048732213427, guid: 5f22e83135a2e7e408ef5d2ff10b2e75, type: 3}
+      propertyPath: projectileSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 845249048732213427, guid: 5f22e83135a2e7e408ef5d2ff10b2e75, type: 3}
+      propertyPath: projectileLifetime
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 845249048732213431, guid: 5f22e83135a2e7e408ef5d2ff10b2e75, type: 3}
       propertyPath: m_Name
       value: BasicTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8800948664204063865, guid: 5f22e83135a2e7e408ef5d2ff10b2e75, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8800948664204063865, guid: 5f22e83135a2e7e408ef5d2ff10b2e75, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f22e83135a2e7e408ef5d2ff10b2e75, type: 3}
