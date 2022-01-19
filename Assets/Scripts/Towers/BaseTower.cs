@@ -11,11 +11,6 @@ public abstract class BaseTower : MonoBehaviour
     [Header("Shop")]
     [SerializeField] private int cost;
 
-    [Header("Bullet basic property")]
-    [SerializeField] protected float projectileSpeed;
-    [SerializeField] protected float projectileLifetime;
-    [SerializeField] protected int damage;
-
     [Header("Tower range")]
     [SerializeField] protected float range;
     [SerializeField] protected GameObject rangeIndicator;
@@ -23,8 +18,6 @@ public abstract class BaseTower : MonoBehaviour
     [Header("Tower attack speed")]
     [SerializeField] private float reloadTime;
     protected float LastShoot = -9999f;
-
-    protected BaseProjectile tempProjCreated;
 
     protected BaseBalloon target;
     

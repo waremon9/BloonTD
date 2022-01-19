@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SniperTower : BaseTower
+public class SniperTower : NoProjectileTower
 {
     public override void Shoot()
     {

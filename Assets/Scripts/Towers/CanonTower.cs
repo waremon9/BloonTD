@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CanonTower : BaseTower
+public class CanonTower : ProjectileTower
 {
     [Header("Bullet used")]
     [SerializeField] private Explosiveprojectiles projectile;
