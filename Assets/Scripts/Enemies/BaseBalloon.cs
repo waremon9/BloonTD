@@ -90,7 +90,9 @@ public class BaseBalloon : MonoBehaviour
     protected virtual void LayerPop(int damage)
     {
         PlayPopEffect();
-
+        
+        GameManager.Instance.AddMoney();
+        
         if (basicBalloonBaseData.IsLastLayer())
         {
             Death();
@@ -144,5 +146,22 @@ public class BaseBalloon : MonoBehaviour
             return true;
         }
         
+    }
+
+    public int GetBalloonRBE()
+    {
+        return RBERecursive(basicBalloonBaseData);
+    }
+
+    private int RBERecursive(BasicBalloonScriptable b)
+    {
+        int RBE = 1;
+
+        foreach (ReleaseOnDeath bDeath in b.releaseOnDeath)
+        {
+            RBE += RBERecursive(bDeath.basicBalloon) * bDeath.qte;
+        }
+
+        return RBE;
     }
 }

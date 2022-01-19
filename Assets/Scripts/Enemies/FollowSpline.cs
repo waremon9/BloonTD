@@ -53,9 +53,7 @@ public class FollowSpline : MonoBehaviour
         }
         else
         {
-            EnemiesManager.Instance.BalloonDead(GetComponent<BaseBalloon>());
-            
-            Destroy(gameObject);//reached the end of the spline
+            BalloonReachEnd();
         }
     }
 
@@ -72,5 +70,13 @@ public class FollowSpline : MonoBehaviour
         }
         
         transform.position = sample.location + spline.transform.localPosition;
+    }
+
+    private void BalloonReachEnd()
+    {
+        EnemiesManager.Instance.BalloonDead(GetComponent<BaseBalloon>());
+        GameManager.Instance.LooseHealth(balloon.GetBalloonRBE());
+            
+        Destroy(gameObject);//reached the end of the spline
     }
 }
