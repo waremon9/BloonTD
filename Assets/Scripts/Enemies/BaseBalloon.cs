@@ -20,9 +20,14 @@ public class BaseBalloon : MonoBehaviour
         {
             spriteRenderer.sprite = basicBalloonBaseData.sprite;
         }
+        
 
+        int remainingDamage = hpActual * -1;
+        
         hpActual = basicBalloonBaseData.hp;
         transform.localScale = Vector2.one * basicBalloonBaseData.size;
+        
+        if(remainingDamage>=1) Hit(remainingDamage);
     }
     
     protected virtual void Start()
@@ -43,11 +48,11 @@ public class BaseBalloon : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            Hit();
+            Hit(1);
         }
     }
     
-    virtual public void Hit(int damage = 1)
+    virtual public void Hit(int damage)
     {
         if(damage == 0) return;
         
@@ -82,7 +87,7 @@ public class BaseBalloon : MonoBehaviour
         }
     }
     
-    protected virtual void LayerPop(int damage = 0)
+    protected virtual void LayerPop(int damage)
     {
         PlayPopEffect();
 
