@@ -401,10 +401,10 @@ PrefabInstance:
     - target: {fileID: 1774707876733751668, guid: 08cdd5fc71004f746b7523f45ca32c1e, type: 3}
       propertyPath: towerPrefab
       value: 
-      objectReference: {fileID: 9100462741345326481, guid: 97ae64b6ec7ba23488ffbdaf012fac6a, type: 3}
+      objectReference: {fileID: 4538131916409119035, guid: 990f7965b9411d84abc26661da66cf8e, type: 3}
     - target: {fileID: 1774707876733751670, guid: 08cdd5fc71004f746b7523f45ca32c1e, type: 3}
       propertyPath: m_Name
-      value: ShopMachineGun (1)
+      value: ShopShotGun
       objectReference: {fileID: 0}
     - target: {fileID: 1774707876733751671, guid: 08cdd5fc71004f746b7523f45ca32c1e, type: 3}
       propertyPath: m_Pivot.x
@@ -497,7 +497,7 @@ PrefabInstance:
     - target: {fileID: 1774707876733751674, guid: 08cdd5fc71004f746b7523f45ca32c1e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a679f51cbd245714782199866f10ae68, type: 3}
+      objectReference: {fileID: 21300000, guid: 95971ca6c3c354243a1c1719134b7f8d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08cdd5fc71004f746b7523f45ca32c1e, type: 3}
 --- !u!1 &311835471
