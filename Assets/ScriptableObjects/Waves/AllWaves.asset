@@ -92,10 +92,19 @@ MonoBehaviour:
       loopInterval: 0.6
   - allgroup:
     - enemyType: {fileID: 11400000, guid: 2071ec7efc3d6c241920fdd996c6bb38, type: 2}
-      qte: 1
+      qte: 2
       firstInterval: 0
       loopInterval: 1
     - enemyType: {fileID: 11400000, guid: ca9b7e3c6364aba4ea0e03bf1868c058, type: 2}
-      qte: 1
+      qte: 2
+      firstInterval: 0
+      loopInterval: 1
+    - enemyType: {fileID: 11400000, guid: 5d6f6df7b25c90b40a5c5f8d05a4d8f9, type: 2}
+      qte: 10
+      firstInterval: 0
+      loopInterval: 0.3
+  - allgroup:
+    - enemyType: {fileID: 11400000, guid: 709ea835675c30142a63479d096a8fa1, type: 2}
+      qte: 3
       firstInterval: 0
       loopInterval: 1

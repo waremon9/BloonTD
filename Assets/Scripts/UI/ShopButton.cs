@@ -8,7 +8,7 @@ public class ShopButton : MonoBehaviour
 
     public void ClickOnButton()
     {
-        if (UIManager.Instance.selectedTower != null) return;
+        if (UIManager.Instance.towerFromShop != null) return;
 
         if (towerPrefab)
         {

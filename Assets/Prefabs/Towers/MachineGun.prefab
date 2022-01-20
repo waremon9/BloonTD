@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: -4817710315351641909}
   m_Layer: 0
   m_Name: MachineGun
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,6 +215,7 @@ MonoBehaviour:
   range: 3.2
   rangeIndicator: {fileID: 2027985737546981015}
   reloadTime: 0.25
+  rotateToLook: 1
   enabledTower: 1
   projectileSpeed: 15
   projectileLifetime: 0.32

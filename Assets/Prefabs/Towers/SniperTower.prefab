@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3766178180214245137}
   m_Layer: 0
   m_Name: SniperTower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +133,8 @@ MonoBehaviour:
   range: 0.85
   rangeIndicator: {fileID: 8528959117196309627}
   reloadTime: 1.5
+  rotateToLook: 1
+  enabledTower: 1
   damage: 2
 --- !u!58 &3766178180214245137
 CircleCollider2D:

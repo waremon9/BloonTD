@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: -6888266348414248010}
   m_Layer: 0
   m_Name: CanonTower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,9 +214,8 @@ MonoBehaviour:
   cost: 350
   range: 1.8
   rangeIndicator: {fileID: 2912243340097204994}
-  noCollisionColor: {r: 0, g: 0, b: 0, a: 0}
-  collisionColor: {r: 0, g: 0, b: 0, a: 0}
   reloadTime: 1.2
+  rotateToLook: 1
   enabledTower: 1
   projectileSpeed: 6
   projectileLifetime: 0.4

@@ -7,11 +7,11 @@ using Random = UnityEngine.Random;
 public class RandomSprite : MonoBehaviour
 {
     [SerializeField] private Sprite[] sprites;
-    [SerializeField] private SpriteRenderer renderer;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
-        renderer.sprite = sprites[Random.Range(0, sprites.Length)];
-        renderer.transform.Rotate(0.0f, 0.0f, Random.Range(0.0f, 360.0f));
+        spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
+        spriteRenderer.transform.Rotate(0.0f, 0.0f, Random.Range(0.0f, 360.0f));
     }
 }

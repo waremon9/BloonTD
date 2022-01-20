@@ -84,7 +84,7 @@ MonoBehaviour:
   - {fileID: 326607130885991567, guid: bcc7fa119245b8a43abf57b47b275c6d, type: 3}
   - {fileID: -7202221117284202641, guid: bcc7fa119245b8a43abf57b47b275c6d, type: 3}
   - {fileID: 4999398472783592093, guid: bcc7fa119245b8a43abf57b47b275c6d, type: 3}
-  renderer: {fileID: 3507575067384808873}
+  spriteRenderer: {fileID: 3507575067384808873}
 --- !u!58 &4685666219871922749
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1554473074231984801}
   m_Layer: 0
   m_Name: ShotGun
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
   range: 1.5
   rangeIndicator: {fileID: 5229575876827768197}
   reloadTime: 1
+  rotateToLook: 1
   enabledTower: 1
   projectileSpeed: 14
   projectileLifetime: 0.16
