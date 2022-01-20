@@ -10,6 +10,10 @@ public class GameManager : MySingleton<GameManager>
     [Header("Parent GameObject")]
     public Transform particleParent;
     public Transform towerParent;
+    
+    [Header("Color")]
+    public SingleColorScriptable noCollisionColor;
+    public SingleColorScriptable collisionColor;
 
     [Header("Money and life")]
     [SerializeField] private int health = 10000;

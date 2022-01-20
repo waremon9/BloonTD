@@ -8,32 +8,27 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 {
     public override bool DoDestroyOnLoad { get; }
 
+    private List<BaseBalloon> allBalloons = new List<BaseBalloon>();
+    
+    [Header("Level path")]
     public Spline path;
-
-    public BasicBalloonScriptable e;
+    
+    [Header("Parent transform")]
     public Transform enemiesParent;
 
+    [Header("Waves")]
     [SerializeField] private AllWaves allWaves;
     [SerializeField] private int waveNumber=0;
     private bool waveEnded = true;
 
-    [SerializeField] public ParticleSystem BalloonPopEffect;
-
-    private List<BaseBalloon> allBalloons = new List<BaseBalloon>();
-
+    [Header("Prefab")]
     public BaseBalloon balloonPrefab;
-
+    
+    [Header("Particles")]
+    [SerializeField] public ParticleSystem BalloonPopEffect;
+    
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            EnemieSpawnAtStart(e);
-        }
-        if (Input.GetKey(KeyCode.T))
-        {
-            EnemieSpawnAtStart(e);
-        }
-        
         if (Input.GetKeyDown(KeyCode.O))
         {
             StopAllCoroutines();

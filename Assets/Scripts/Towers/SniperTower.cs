@@ -11,6 +11,8 @@ public class SniperTower : NoProjectileTower
 
     protected override void Update()
     {
+        if(!enabledTower) return;
+        
         if (CanShoot() && EnemiesManager.Instance.AtLeastOneBalloonAlive())
         {
             UpdateTarget();

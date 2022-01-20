@@ -17,8 +17,6 @@ public abstract class BaseTower : MonoBehaviour
     [Header("Tower range")]
     [SerializeField] protected float range;
     [SerializeField] protected GameObject rangeIndicator;
-    [SerializeField] private Color noCollisionColor;
-    [SerializeField] private Color collisionColor;
     
     [Header("Tower attack speed")]
     [SerializeField] private float reloadTime;
@@ -85,11 +83,11 @@ public abstract class BaseTower : MonoBehaviour
     {
         if (b)
         {
-            rangeIndicator.GetComponent<SpriteRenderer>().color = collisionColor;
+            rangeIndicator.GetComponent<SpriteRenderer>().color = GameManager.Instance.collisionColor.var;
         }
         else
         {
-            rangeIndicator.GetComponent<SpriteRenderer>().color = noCollisionColor;
+            rangeIndicator.GetComponent<SpriteRenderer>().color = GameManager.Instance.noCollisionColor.var;
         }
     }
     

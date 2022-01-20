@@ -217,6 +217,7 @@ MonoBehaviour:
   noCollisionColor: {r: 0, g: 0, b: 0, a: 0}
   collisionColor: {r: 0, g: 0, b: 0, a: 0}
   reloadTime: 1.2
+  enabledTower: 1
   projectileSpeed: 6
   projectileLifetime: 0.4
   damage: 1
