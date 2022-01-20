@@ -1,0 +1,300 @@
+fileFormatVersion: 2
+guid: bcc7fa119245b8a43abf57b47b275c6d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4878791360950515487
+    second: ShotGunShell_0
+  - first:
+      213: 7929360391291344144
+    second: ShotGunShell_1
+  - first:
+      213: 190468892579957192
+    second: ShotGunShell_2
+  - first:
+      213: -2638193841163792468
+    second: ShotGunShell_3
+  - first:
+      213: -2514300214592766848
+    second: ShotGunShell_4
+  - first:
+      213: 326607130885991567
+    second: ShotGunShell_5
+  - first:
+      213: -7202221117284202641
+    second: ShotGunShell_6
+  - first:
+      213: 4999398472783592093
+    second: ShotGunShell_7
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ShotGunShell_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 181
+        width: 50
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1733b2d4e2f4b340800000000000000
+      internalID: 4878791360950515487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShotGunShell_1
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 175
+        width: 58
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.42330572}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01519faa34fba0e60800000000000000
+      internalID: 7929360391291344144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShotGunShell_2
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 163
+        width: 59
+        height: 85
+      alignment: 9
+      pivot: {x: 0.48024115, y: 0.54457307}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c98dfad27ea4a200800000000000000
+      internalID: 190468892579957192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShotGunShell_3
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 111
+        width: 74
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43698627, y: 0.5000003}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf0fc0eda0436bd0800000000000000
+      internalID: -2638193841163792468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShotGunShell_4
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 64
+        width: 71
+        height: 84
+      alignment: 9
+      pivot: {x: 0.5779909, y: 0.4167317}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c7282b6496b1dd0800000000000000
+      internalID: -2514300214592766848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShotGunShell_5
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 17
+        width: 82
+        height: 75
+      alignment: 9
+      pivot: {x: 0.44668797, y: 0.4611415}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8ca1918477588400800000000000000
+      internalID: 326607130885991567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShotGunShell_6
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 4
+        width: 73
+        height: 53
+      alignment: 9
+      pivot: {x: 0.55189997, y: 0.4230163}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6745768d029c0c90800000000000000
+      internalID: -7202221117284202641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShotGunShell_7
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 19
+        width: 52
+        height: 73
+      alignment: 9
+      pivot: {x: 0.43834952, y: 0.44410774}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9a75ec4c6e616540800000000000000
+      internalID: 4999398472783592093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

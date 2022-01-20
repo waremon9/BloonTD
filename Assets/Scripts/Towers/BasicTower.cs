@@ -5,10 +5,10 @@ using UnityEngine;
 public class BasicTower : ProjectileTower
 {
     [Header("Bullet used")]
-    [SerializeField] private PierceProjectile projectile;
+    [SerializeField] protected PierceProjectile projectile;
 
     [Header("Special property")]
-    [SerializeField] private int piercePower;
+    [SerializeField] protected int piercePower;
     
     public override void Shoot()
     {

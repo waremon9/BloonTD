@@ -35,12 +35,19 @@ public class EnemiesManager : MySingleton<EnemiesManager>
             waveEnded = true;
         }
         
-        if (Input.GetKeyDown(KeyCode.P) && waveEnded)
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            StartCoroutine(SendWaveCoroutine(allWaves.allWaves[waveNumber]));
-            waveNumber++;
-            if (waveNumber >= allWaves.allWaves.Count) waveNumber = allWaves.allWaves.Count - 1;
+            CallNextWave();
         }
+    }
+
+    public void CallNextWave()
+    {
+        if(!waveEnded) return;
+        
+        StartCoroutine(SendWaveCoroutine(allWaves.allWaves[waveNumber]));
+        waveNumber++;
+        if (waveNumber >= allWaves.allWaves.Count) waveNumber = allWaves.allWaves.Count - 1;
     }
 
     private IEnumerator SendWaveCoroutine(AllWaves.SingleWave wave)

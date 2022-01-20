@@ -2861,6 +2861,7 @@ GameObject:
   - component: {fileID: 1767136999}
   - component: {fileID: 1767136998}
   - component: {fileID: 1767136997}
+  - component: {fileID: 1767137000}
   m_Layer: 5
   m_Name: Wavebutton
   m_TagString: Untagged
@@ -2931,7 +2932,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1767136998}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1767137000}
+        m_TargetAssemblyTypeName: NextWaveButton, Assembly-CSharp
+        m_MethodName: OnNextWaveClicke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1767136998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2970,6 +2983,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767136995}
   m_CullTransparentMesh: 1
+--- !u!114 &1767137000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767136995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a8eea2e825c63a4f9de8ace97474245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1776541696 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1774707876733751671, guid: 08cdd5fc71004f746b7523f45ca32c1e, type: 3}

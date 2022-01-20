@@ -130,13 +130,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitBox: {fileID: 1554473074231984801}
   cost: 100
-  range: 2
+  range: 2.2
   rangeIndicator: {fileID: 5229575876827768197}
-  noCollisionColor: {r: 1, g: 0.8784314, b: 0.61960787, a: 0.5176471}
-  collisionColor: {r: 1, g: 0.48584908, b: 0.48584908, a: 0.5254902}
   reloadTime: 0.8
+  enabledTower: 1
   projectileSpeed: 10
-  projectileLifetime: 0.26
+  projectileLifetime: 0.28
   damage: 1
   projectile: {fileID: -8818460200452655450, guid: 9cc6bd2471e5ae34ba53f75089ea9b75, type: 3}
   piercePower: 0
@@ -182,7 +181,7 @@ Transform:
   m_GameObject: {fileID: 5229575876827768197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 0}
+  m_LocalScale: {x: 4.4, y: 4.4, z: 0}
   m_Children: []
   m_Father: {fileID: 845249048732213426}
   m_RootOrder: 0
