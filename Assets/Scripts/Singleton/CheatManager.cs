@@ -16,6 +16,10 @@ public class CheatManager : MySingleton<CheatManager>
     public BasicBalloonScriptable multiEnemies;
     public int qte;
 
+    [Header("Check balloon RBE")]
+    public BasicBalloonScriptable getRBE;
+    public int RBE;
+
 
     private void Start()
     {
@@ -47,5 +51,9 @@ public class CheatManager : MySingleton<CheatManager>
             yield return new WaitForSeconds(0.01f);
         }
     }
-    
+
+    private void OnValidate()
+    {
+        if(getRBE) RBE = BaseBalloon.GetBalloonRBE(getRBE);
+    }
 }

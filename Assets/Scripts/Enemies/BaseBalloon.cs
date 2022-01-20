@@ -153,7 +153,12 @@ public class BaseBalloon : MonoBehaviour
         return RBERecursive(basicBalloonBaseData);
     }
 
-    private int RBERecursive(BasicBalloonScriptable b)
+    public static int GetBalloonRBE(BasicBalloonScriptable balloonData)
+    {
+        return RBERecursive(balloonData);
+    }
+
+    private static int RBERecursive(BasicBalloonScriptable b)
     {
         int RBE = 1;
 

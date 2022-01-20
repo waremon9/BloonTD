@@ -40,9 +40,10 @@ public class GameManager : MySingleton<GameManager>
 
     public void LooseHealth(int damage)
     {
+        health = Mathf.Clamp(health - damage, 0, 9999999);
+        
         ui.UpdateHealth(health);
         
-        health = Mathf.Clamp(health - damage, 0, 999);
         if (health == 0)
         {
             Debug.Log("YOU'RE DEAD !!!");
