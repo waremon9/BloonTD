@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb49fd10ab522b84b8bd84a2a27c2aaf, type: 3}
   m_Name: TowerNoCollisionColor
   m_EditorClassIdentifier: 
-  var: {r: 0, g: 0, b: 0, a: 0}
+  var: {r: 1, g: 0.8784314, b: 0.61960787, a: 0.5176471}

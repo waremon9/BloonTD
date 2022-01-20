@@ -14,56 +14,88 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allWaves:
   - allgroup:
-    - enemyType: {fileID: -7929269985722858835, guid: f17b990fbfdd51a4cbbe37150a64bec9, type: 3}
+    - enemyType: {fileID: 11400000, guid: 33f980ab268305646adb7fc2cd0cef96, type: 2}
       qte: 20
       firstInterval: 0
       loopInterval: 0.7
   - allgroup:
-    - enemyType: {fileID: -7929269985722858835, guid: f17b990fbfdd51a4cbbe37150a64bec9, type: 3}
+    - enemyType: {fileID: 11400000, guid: 33f980ab268305646adb7fc2cd0cef96, type: 2}
       qte: 35
       firstInterval: 0
       loopInterval: 0.6
   - allgroup:
-    - enemyType: {fileID: -7929269985722858835, guid: f17b990fbfdd51a4cbbe37150a64bec9, type: 3}
+    - enemyType: {fileID: 11400000, guid: 33f980ab268305646adb7fc2cd0cef96, type: 2}
       qte: 20
       firstInterval: 0
       loopInterval: 0.4
-    - enemyType: {fileID: -7929269985722858835, guid: 5f251d023babd0c419b4c9635856b453, type: 3}
+    - enemyType: {fileID: 11400000, guid: 6718c711fe0da7749820b0e56b7984e9, type: 2}
       qte: 8
       firstInterval: 0.5
       loopInterval: 1
   - allgroup:
-    - enemyType: {fileID: -7929269985722858835, guid: 5f251d023babd0c419b4c9635856b453, type: 3}
+    - enemyType: {fileID: 11400000, guid: 33f980ab268305646adb7fc2cd0cef96, type: 2}
       qte: 10
       firstInterval: 0
       loopInterval: 0.2
-    - enemyType: {fileID: -7929269985722858835, guid: d5e34c82391f54a43839f1a8386de55a, type: 3}
+    - enemyType: {fileID: 11400000, guid: 6718c711fe0da7749820b0e56b7984e9, type: 2}
       qte: 10
       firstInterval: 1
       loopInterval: 0.9
-    - enemyType: {fileID: -7929269985722858835, guid: f17b990fbfdd51a4cbbe37150a64bec9, type: 3}
+    - enemyType: {fileID: 11400000, guid: 33f980ab268305646adb7fc2cd0cef96, type: 2}
       qte: 25
       firstInterval: 0
       loopInterval: 0.6
   - allgroup:
-    - enemyType: {fileID: -7929269985722858835, guid: 5f251d023babd0c419b4c9635856b453, type: 3}
+    - enemyType: {fileID: 11400000, guid: 6718c711fe0da7749820b0e56b7984e9, type: 2}
       qte: 20
       firstInterval: 0
       loopInterval: 0.5
-    - enemyType: {fileID: -7929269985722858835, guid: d5e34c82391f54a43839f1a8386de55a, type: 3}
+    - enemyType: {fileID: 11400000, guid: 4744cd698fe69fb479881e44ce5ba8b7, type: 2}
       qte: 15
       firstInterval: 1
       loopInterval: 0.8
   - allgroup:
-    - enemyType: {fileID: -7929269985722858835, guid: d5e34c82391f54a43839f1a8386de55a, type: 3}
+    - enemyType: {fileID: 11400000, guid: 4744cd698fe69fb479881e44ce5ba8b7, type: 2}
       qte: 10
       firstInterval: 0
       loopInterval: 0.6
-    - enemyType: {fileID: -7929269985722858835, guid: f76c51b89784d8843b0aa92f9184f09f, type: 3}
+    - enemyType: {fileID: 11400000, guid: 54b5f1ce14cb1d94c8c453e508f74b14, type: 2}
       qte: 10
       firstInterval: 0.5
       loopInterval: 0.9
-    - enemyType: {fileID: 7731134422265895456, guid: 5530861fd3c17eb46b7be6d04b688147, type: 3}
+    - enemyType: {fileID: 11400000, guid: 920e77b60e40107408e40a5ab7f250a4, type: 2}
       qte: 5
       firstInterval: 1
       loopInterval: 2
+  - allgroup:
+    - enemyType: {fileID: 11400000, guid: 1283deef865caa34aa0c6c01f633a3a5, type: 2}
+      qte: 10
+      firstInterval: 0
+      loopInterval: 0.6
+  - allgroup:
+    - enemyType: {fileID: 11400000, guid: a21804ea82d673242b162e50fdc75be4, type: 2}
+      qte: 8
+      firstInterval: 0
+      loopInterval: 0.4
+    - enemyType: {fileID: 11400000, guid: babb14be0deb0fb448f96bae6740cbc5, type: 2}
+      qte: 5
+      firstInterval: 0
+      loopInterval: 0.6
+  - allgroup:
+    - enemyType: {fileID: 11400000, guid: 0dfa0a29e4ea5ed40a896ca0018eb67b, type: 2}
+      qte: 5
+      firstInterval: 0
+      loopInterval: 0.8
+    - enemyType: {fileID: 11400000, guid: 5d6f6df7b25c90b40a5c5f8d05a4d8f9, type: 2}
+      qte: 3
+      firstInterval: 0
+      loopInterval: 0.6
+  - allgroup:
+    - enemyType: {fileID: 11400000, guid: 2071ec7efc3d6c241920fdd996c6bb38, type: 2}
+      qte: 1
+      firstInterval: 0
+      loopInterval: 1
+    - enemyType: {fileID: 11400000, guid: ca9b7e3c6364aba4ea0e03bf1868c058, type: 2}
+      qte: 1
+      firstInterval: 0
+      loopInterval: 1
