@@ -174,6 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5880547070380934809}
   - component: {fileID: 9100462741345326481}
+  - component: {fileID: -4817710315351641909}
   m_Layer: 0
   m_Name: MachineGun
   m_TagString: Untagged
@@ -209,13 +210,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15ba94ee282ae9843b83d3c3484df5ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitBox: {fileID: -4817710315351641909}
   cost: 350
-  projectileSpeed: 14
-  projectileLifetime: 0.32
-  damage: 1
   range: 3
   rangeIndicator: {fileID: 2027985737546981015}
   reloadTime: 0.25
+  projectileSpeed: 14
+  projectileLifetime: 0.32
+  damage: 1
   projectile: {fileID: -8818460200452655450, guid: df3b7286e5c297e449c3d64febbd3b69, type: 3}
   piercePower: 0
   weaponSpread: 10
+--- !u!58 &-4817710315351641909
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6970728196981633030}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4

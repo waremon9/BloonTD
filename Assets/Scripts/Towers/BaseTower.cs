@@ -8,12 +8,17 @@ using UnityEngine.Serialization;
 
 public abstract class BaseTower : MonoBehaviour
 {
+    [Header("collision")]
+    public CircleCollider2D hitBox;
+    
     [Header("Shop")]
-    [SerializeField] private int cost;
+    public int cost;
 
     [Header("Tower range")]
     [SerializeField] protected float range;
     [SerializeField] protected GameObject rangeIndicator;
+    [SerializeField] private Color noCollisionColor;
+    [SerializeField] private Color collisionColor;
     
     [Header("Tower attack speed")]
     [SerializeField] private float reloadTime;
@@ -21,9 +26,19 @@ public abstract class BaseTower : MonoBehaviour
 
     protected BaseBalloon target;
     
+    [HideInInspector] public bool enabledTower = true;
+
     private void Start()
     {
         UpdateRangeIndicator();
+
+        if (!hitBox)
+        {
+            if (!TryGetComponent(out hitBox))
+            {
+                Debug.LogError("No circle collider on tower " + name);
+            }
+        }
     }
 
     protected virtual void UpdateRangeIndicator()
@@ -33,6 +48,8 @@ public abstract class BaseTower : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (!enabledTower) return;
+        
         if (CanShoot() && EnemiesManager.Instance.AtLeastOneBalloonInRange(transform.position, range))
         {
             UpdateTarget();
@@ -61,7 +78,19 @@ public abstract class BaseTower : MonoBehaviour
 
     public void EnableRangeIndicator(bool b)
     {
-        rangeIndicator.SetActive(b);
+        rangeIndicator.GetComponent<SpriteRenderer>().enabled = b;
+    }
+
+    public void SetCollisionColor(bool b)
+    {
+        if (b)
+        {
+            rangeIndicator.GetComponent<SpriteRenderer>().color = collisionColor;
+        }
+        else
+        {
+            rangeIndicator.GetComponent<SpriteRenderer>().color = noCollisionColor;
+        }
     }
     
     private void OnValidate()
