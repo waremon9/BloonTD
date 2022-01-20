@@ -21,6 +21,9 @@ public abstract class BaseTower : MonoBehaviour
     [Header("Tower attack speed")]
     [SerializeField] private float reloadTime;
     protected float LastShoot = -9999f;
+    
+    [Header("Rotation")]
+    [SerializeField] protected bool rotateToLook = true;
 
     protected BaseBalloon target;
     
@@ -59,6 +62,7 @@ public abstract class BaseTower : MonoBehaviour
     
     protected void RotationLookAtTarget()
     {
+        if (!rotateToLook) return;
         transform.up = target.transform.position - transform.position;
     }
 
