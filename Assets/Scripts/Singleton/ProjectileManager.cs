@@ -36,7 +36,7 @@ public class ProjectileManager : MySingleton<ProjectileManager>
                 if (Vector2.Distance(balloon.transform.position, projectile.transform.position) <=
                     balloon.hitBoxRadius + projectile.hitBoxRadius)
                 {
-                    if(!balloon.NewProjectileHit(projectile)) continue;
+                    if(!balloon.NewProjectileHit(projectile) && !(TackPile)projectile) continue;
                     
                     projectile.BalloonHit(balloon);
                     return;

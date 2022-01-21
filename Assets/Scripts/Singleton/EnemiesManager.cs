@@ -19,7 +19,7 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     [Header("Waves")]
     [SerializeField] private AllWaves allWaves;
     [SerializeField] private int waveNumber=0;
-    private bool waveEnded = true;
+    private bool coroutineSendWaveEnded = true;
 
     [Header("Prefab")]
     public BaseBalloon balloonPrefab;
@@ -32,7 +32,7 @@ public class EnemiesManager : MySingleton<EnemiesManager>
         if (Input.GetKeyDown(KeyCode.O))
         {
             StopAllCoroutines();
-            waveEnded = true;
+            coroutineSendWaveEnded = true;
         }
         
         if (Input.GetKeyDown(KeyCode.P))
@@ -43,7 +43,7 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
     public void CallNextWave()
     {
-        if(!waveEnded) return;
+        if(!IsWaveFinished()) return;
         
         StartCoroutine(SendWaveCoroutine(allWaves.allWaves[waveNumber]));
         waveNumber++;
@@ -52,14 +52,19 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
     private IEnumerator SendWaveCoroutine(AllWaves.SingleWave wave)
     {
-        waveEnded = false;
+        coroutineSendWaveEnded = false;
         
         foreach (AllWaves.EnemyGroup enemyGroup in wave.allgroup)
         {
             yield return StartCoroutine(SendEnemyGroupCoroutine(enemyGroup));
         }
         
-        waveEnded = true;
+        coroutineSendWaveEnded = true;
+    }
+
+    public bool IsWaveFinished()
+    {
+        return coroutineSendWaveEnded && allBalloons.Count == 0;
     }
     
     private IEnumerator SendEnemyGroupCoroutine(AllWaves.EnemyGroup group)

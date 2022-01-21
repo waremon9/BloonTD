@@ -51,13 +51,18 @@ public abstract class BaseTower : MonoBehaviour
     {
         if (!enabledTower) return;
         
-        if (CanShoot() && EnemiesManager.Instance.AtLeastOneBalloonInRange(transform.position, range))
+        if (CanShoot() && IsTargetInRange())
         {
             UpdateTarget();
             RotationLookAtTarget();
             Shoot();
             LastShoot = Time.time;
         }
+    }
+
+    protected virtual bool IsTargetInRange()
+    {
+        return EnemiesManager.Instance.AtLeastOneBalloonInRange(transform.position, range);
     }
     
     protected void RotationLookAtTarget()
