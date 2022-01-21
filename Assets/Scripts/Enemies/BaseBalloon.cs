@@ -160,7 +160,7 @@ public class BaseBalloon : MonoBehaviour
 
     private static int RBERecursive(BasicBalloonScriptable b)
     {
-        int RBE = 1;
+        int RBE = b.hp;
 
         foreach (ReleaseOnDeath bDeath in b.releaseOnDeath)
         {
