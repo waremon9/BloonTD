@@ -29,11 +29,11 @@ public class AddRemoveSprite : MonoBehaviour
     {
         if (tacksRenderer.Count < 1)
         {
-            Debug.Log("empty tack pile not destroyed");
+            Debug.Log("empty tack pile not destroyed"  + GetComponent<TackPile>().tackQte);
             return;
         }
         GameObject temp = tacksRenderer[0];
         tacksRenderer.RemoveAt(0);
-        Destroy(temp);
+        temp.SetActive(false);
     }
 }

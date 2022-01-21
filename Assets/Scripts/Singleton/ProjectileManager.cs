@@ -28,18 +28,31 @@ public class ProjectileManager : MySingleton<ProjectileManager>
 
     private void CheckCollisionProjectileBalloon()
     {
-        foreach (BaseProjectile projectile in AllProjectile)
+        List<BaseBalloon> listB = EnemiesManager.Instance.GetAllBalloon();
+
+        for (int i = AllProjectile.Count-1; i >= 0; i--)
         {
-            foreach (BaseBalloon balloon in EnemiesManager.Instance.GetAllBalloon())
+            BaseProjectile projectile = AllProjectile[i];
+
+            for (int j = listB.Count - 1; j >= 0; j--)
             {
+                BaseBalloon balloon = listB[j];
                     
                 if (Vector2.Distance(balloon.transform.position, projectile.transform.position) <=
                     balloon.hitBoxRadius + projectile.hitBoxRadius)
                 {
-                    if(!balloon.NewProjectileHit(projectile) && !(TackPile)projectile) continue;
-                    
-                    projectile.BalloonHit(balloon);
-                    return;
+                    if (projectile.GetType() == typeof(TackPile))
+                    {
+                        projectile.BalloonHit(balloon);
+                        if(!projectile) return;
+                    }
+                    else
+                    {
+                        if(!balloon.NewProjectileHit(projectile)) continue;
+                        
+                        projectile.BalloonHit(balloon);
+                        return;
+                    }
                 }
             }
         }

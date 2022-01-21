@@ -134,12 +134,11 @@ MonoBehaviour:
   rangeIndicator: {fileID: 5229575876827768197}
   reloadTime: 1
   rotateToLook: 0
-  enabledTower: 1
   projectileSpeed: 0.5
   projectileLifetime: 45
   damage: 1
   projectile: {fileID: 6467766901733981548, guid: 388d2584530bf2049a681bd35ba6e19a, type: 3}
-  tackQte: 10
+  tackQte: 5
 --- !u!58 &1554473074231984801
 CircleCollider2D:
   m_ObjectHideFlags: 0

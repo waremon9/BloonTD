@@ -27,9 +27,18 @@ public abstract class BaseTower : MonoBehaviour
 
     protected BaseBalloon target;
     
-    [HideInInspector] public bool enabledTower = true;
+    protected bool enabledTower = true;
 
-    private void Start()
+    public void SetEnableTower(bool b)
+    {
+        enabledTower = b;
+        OnTowerEnable();
+    }
+
+    protected virtual void OnTowerEnable(){}
+    
+    
+    protected virtual void Start()
     {
         UpdateRangeIndicator();
 

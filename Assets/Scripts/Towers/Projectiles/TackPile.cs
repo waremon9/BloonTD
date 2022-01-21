@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TackPile : BaseProjectile
 {
-    private int tackQte;
+    public int tackQte;
     public AddRemoveSprite renderersScript;
 
     public void SetTackQte(int qte)
@@ -15,6 +15,8 @@ public class TackPile : BaseProjectile
     
     public override void BalloonHit(BaseBalloon balloon)
     {
+        if(tackQte<=0) return;
+        
         if (balloon.IsResistant(projectileType))
         {
             EndOfLife();
@@ -24,6 +26,7 @@ public class TackPile : BaseProjectile
         balloon.Hit(damage);
 
         tackQte--;
+        if (!renderersScript) TryGetComponent(out renderersScript);
         renderersScript.RemoveSprite();
 
         if (tackQte <= 0)

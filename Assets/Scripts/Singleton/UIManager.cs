@@ -60,7 +60,7 @@ public class UIManager : MySingleton<UIManager>
         {
             if (Physics2D.OverlapCircleAll(towerFromShop.transform.position, towerFromShop.hitBox.radius).Length > 1) return;
                 
-            towerFromShop.enabledTower = true;
+            towerFromShop.SetEnableTower(true);
             GameManager.Instance.SpendMoney(towerFromShop.cost);
 
             selectedTower = towerFromShop;
@@ -112,7 +112,7 @@ public class UIManager : MySingleton<UIManager>
         towerFromShop = Instantiate(prefab, new Vector3(position.x, position.y, 0), Quaternion.identity, GameManager.Instance.towerParent);
         
         towerFromShop.EnableRangeIndicator(true);
-        towerFromShop.enabledTower = false;
+        towerFromShop.SetEnableTower(false);
     }
 
     public void UpdateHealth(int value)
