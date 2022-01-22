@@ -29,7 +29,7 @@ public class TackFactory : ProjectileTower
 
     protected override bool IsTargetInRange()
     {
-        return !EnemiesManager.Instance.IsWaveFinished();
+        return !EnemiesManager.Instance.waveEnded;
     }
 
     private void GetPileDestination()

@@ -61,6 +61,12 @@ public class GameManager : MySingleton<GameManager>
         ui.UpdateMoney(money);
     }
 
+    public void EndOfWaveMoneyReward()
+    {
+        money += 100 + EnemiesManager.Instance.waveNumber;
+        ui.UpdateMoney(money);
+    }
+
     public void SpendMoney(int amount)
     {
         money -= amount;

@@ -26,6 +26,15 @@ public class ProjectileManager : MySingleton<ProjectileManager>
         AllProjectile.Remove(proj);
     }
 
+    public void DestroyAllProjectiles()
+    {
+        foreach (BaseProjectile projectile in AllProjectile)
+        {
+            Destroy(projectile.gameObject);
+        }
+        AllProjectile.Clear();
+    }
+
     private void CheckCollisionProjectileBalloon()
     {
         List<BaseBalloon> listB = EnemiesManager.Instance.GetAllBalloon();

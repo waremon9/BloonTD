@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SplineMesh;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemiesManager : MySingleton<EnemiesManager>
 {
@@ -18,21 +19,29 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
     [Header("Waves")]
     [SerializeField] private AllWaves allWaves;
-    [SerializeField] private int waveNumber=0;
-    private bool coroutineSendWaveEnded = true;
+    public int waveNumber=0;
+    [HideInInspector] public bool waveEnded;
 
     [Header("Prefab")]
     public BaseBalloon balloonPrefab;
     
     [Header("Particles")]
     [SerializeField] public ParticleSystem BalloonPopEffect;
-    
+
+    [Header("Event")]
+    public UnityEvent OnEndOfGame;
+
+    private void Start()
+    {
+        waveEnded = true;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
             StopAllCoroutines();
-            coroutineSendWaveEnded = true;
+            waveEnded = true;
         }
         
         if (Input.GetKeyDown(KeyCode.P))
@@ -43,7 +52,7 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
     public void CallNextWave()
     {
-        if(!IsWaveFinished()) return;
+        if(!waveEnded) return;
         
         StartCoroutine(SendWaveCoroutine(allWaves.allWaves[waveNumber]));
         waveNumber++;
@@ -52,19 +61,16 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
     private IEnumerator SendWaveCoroutine(AllWaves.SingleWave wave)
     {
-        coroutineSendWaveEnded = false;
+        waveEnded = false;
         
         foreach (AllWaves.EnemyGroup enemyGroup in wave.allgroup)
         {
             yield return StartCoroutine(SendEnemyGroupCoroutine(enemyGroup));
         }
         
-        coroutineSendWaveEnded = true;
-    }
-
-    public bool IsWaveFinished()
-    {
-        return coroutineSendWaveEnded && allBalloons.Count == 0;
+        yield return new WaitUntil(() => allBalloons.Count == 0);
+        waveEnded = true;
+        OnEndOfGame.Invoke();
     }
     
     private IEnumerator SendEnemyGroupCoroutine(AllWaves.EnemyGroup group)
