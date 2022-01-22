@@ -13,8 +13,16 @@ public class UIManager : MySingleton<UIManager>
 
     private BaseTower selectedTower;
     
+    [Header("Healt and money text ref")]
     [SerializeField] private Text healthText;
     [SerializeField] private Text moneyText;
+
+    [Header("Wave and speed button")] [SerializeField]
+    private Image waveButtonIcon;
+    [SerializeField] private Sprite playSprite;
+    [SerializeField] private Sprite inactiveDoubleSpeedSprite;
+    [SerializeField] private Sprite activeDoubleSpeedSprite;
+    [SerializeField] private Sprite activeAutoNextWaveSpeedSprite;
 
     private void Update()
     {
@@ -122,7 +130,42 @@ public class UIManager : MySingleton<UIManager>
 
     public void UpdateMoney(int value)
     {
-
         moneyText.text = "x " + value.ToString();
+    }
+
+    public void OnWaveButtonClick()
+    {
+        if (GameManager.Instance.gameState == GameState.NoWave)
+        {
+            EnemiesManager.Instance.CallNextWave();
+        }
+        else
+        {
+            GameManager.Instance.ChangeGameSpeed();
+        }
+        UpdateWaveButtonIcon();
+    }
+
+    public void UpdateWaveButtonIcon()
+    {
+        if (GameManager.Instance.gameState == GameState.NoWave)
+        {
+            waveButtonIcon.sprite = playSprite;
+        }
+        else
+        {
+            switch (GameManager.Instance.gameSpeed)
+            {
+                case GameSpeed.Normal:
+                    waveButtonIcon.sprite = inactiveDoubleSpeedSprite;
+                    break;
+                case GameSpeed.Double:
+                    waveButtonIcon.sprite = activeDoubleSpeedSprite;
+                    break;
+                case GameSpeed.AutoLaunch:
+                    waveButtonIcon.sprite = activeAutoNextWaveSpeedSprite;
+                    break;
+            }
+        }
     }
 }

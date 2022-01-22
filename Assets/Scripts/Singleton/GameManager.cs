@@ -20,6 +20,9 @@ public class GameManager : MySingleton<GameManager>
     [SerializeField] private int money = 90000;
 
     [SerializeField] private UIManager ui;
+
+    [HideInInspector] public GameState gameState = GameState.NoWave;
+    [HideInInspector] public GameSpeed gameSpeed = GameSpeed.Normal;
     
     private void Start()
     {
@@ -72,4 +75,25 @@ public class GameManager : MySingleton<GameManager>
         money -= amount;
         ui.UpdateMoney(money);
     }
+
+    public void ChangeGameSpeed()
+    {
+        switch (gameSpeed)
+        {
+            case GameSpeed.Normal:
+                gameSpeed = GameSpeed.Double;
+                Time.timeScale = 2;
+                break;
+            case GameSpeed.Double:
+                gameSpeed = GameSpeed.AutoLaunch;
+                break;
+            case GameSpeed.AutoLaunch:
+                gameSpeed = GameSpeed.Normal;
+                Time.timeScale = 1;
+                break;
+        }
+    }
 }
+
+public enum GameState{NoWave, WaveComing}
+public enum GameSpeed{Normal, Double, AutoLaunch}

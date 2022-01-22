@@ -20,7 +20,6 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     [Header("Waves")]
     [SerializeField] private AllWaves allWaves;
     public int waveNumber=0;
-    [HideInInspector] public bool waveEnded;
 
     [Header("Prefab")]
     public BaseBalloon balloonPrefab;
@@ -31,17 +30,12 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     [Header("Event")]
     public UnityEvent OnEndOfGame;
 
-    private void Start()
-    {
-        waveEnded = true;
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
             StopAllCoroutines();
-            waveEnded = true;
+            GameManager.Instance.gameState = GameState.NoWave;
         }
         
         if (Input.GetKeyDown(KeyCode.P))
@@ -52,16 +46,24 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
     public void CallNextWave()
     {
-        if(!waveEnded) return;
+        if(GameManager.Instance.gameState == GameState.WaveComing) return;
         
         StartCoroutine(SendWaveCoroutine(allWaves.allWaves[waveNumber]));
         waveNumber++;
         if (waveNumber >= allWaves.allWaves.Count) waveNumber = allWaves.allWaves.Count - 1;
     }
 
+    public void AutoLaunchNextWaveCheck()
+    {
+        if (GameManager.Instance.gameSpeed == GameSpeed.AutoLaunch)
+        {
+            CallNextWave();
+        }
+    }
+
     private IEnumerator SendWaveCoroutine(AllWaves.SingleWave wave)
     {
-        waveEnded = false;
+        GameManager.Instance.gameState = GameState.WaveComing;
         
         foreach (AllWaves.EnemyGroup enemyGroup in wave.allgroup)
         {
@@ -69,7 +71,8 @@ public class EnemiesManager : MySingleton<EnemiesManager>
         }
         
         yield return new WaitUntil(() => allBalloons.Count == 0);
-        waveEnded = true;
+        
+        GameManager.Instance.gameState = GameState.NoWave;
         OnEndOfGame.Invoke();
     }
     

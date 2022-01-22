@@ -43,4 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8045698cf850c4a89e6dfc13f08ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedTower: {fileID: 0}
+  towerFromShop: {fileID: 0}
+  healthText: {fileID: 0}
+  moneyText: {fileID: 0}
+  waveButton: {fileID: 0}
+  playSprite: {fileID: 21300000, guid: a8fa8c8911a6f964cbcb15838e2a6131, type: 3}
+  inactiveDoubleSpeedSprite: {fileID: 21300000, guid: 635ee8237cf2e6241a1eb62e941f8197, type: 3}
+  activeDoubleSpeedSprite: {fileID: 21300000, guid: 1bc2137fcda15d94ba7c7c808ff74840, type: 3}
+  activeAutoNextWaveSpeedSprite: {fileID: 21300000, guid: 96947a8302cc89d40a1929643316fca5, type: 3}
