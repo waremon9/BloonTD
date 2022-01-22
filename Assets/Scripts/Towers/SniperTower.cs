@@ -6,7 +6,7 @@ public class SniperTower : NoProjectileTower
 {
     public override void Shoot()
     {
-        target.Hit(damage);
+        if(!target.IsResistant(type)) target.Hit(damage);
     }
 
     protected override void Update()

@@ -30,7 +30,7 @@ public class Explosiveprojectiles : BaseProjectile
     {
         foreach (BaseBalloon b in EnemiesManager.Instance.enemiesParent.GetComponentsInChildren<BaseBalloon>())
         {
-            if ((b.transform.position - transform.position).magnitude < explosionRange)
+            if (Vector3.Distance(b.transform.position, transform.position) <= explosionRange + b.hitBoxRadius)
             {
                 if(!b.IsResistant(projectileType)) b.Hit(damage); 
             }
@@ -50,6 +50,9 @@ public class Explosiveprojectiles : BaseProjectile
             Debug.LogError("No particle parent reference in gameManager");
         }
     }
-    
-    
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, explosionRange);
+    }
 }

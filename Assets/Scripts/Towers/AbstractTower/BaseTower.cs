@@ -32,7 +32,7 @@ public abstract class BaseTower : MonoBehaviour
     public void SetEnableTower(bool b)
     {
         enabledTower = b;
-        OnTowerEnable();
+        if(b) OnTowerEnable();
     }
 
     protected virtual void OnTowerEnable(){}
@@ -90,6 +90,16 @@ public abstract class BaseTower : MonoBehaviour
     protected virtual void UpdateTarget()
     {
         target = EnemiesManager.Instance.GetFirstBalloonInRange(transform.position, range);
+    }
+
+    public virtual void TowerGetSelected()
+    {
+        EnableRangeIndicator(true);
+    }
+
+    public virtual void TowerGetUnselected()
+    {
+        EnableRangeIndicator(false);
     }
 
     public void EnableRangeIndicator(bool b)

@@ -30,12 +30,20 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     [Header("Event")]
     public UnityEvent OnEndOfGame;
 
+    private GameManager GM;
+
+    private void Start()
+    {
+        GM = GameManager.Instance;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
             StopAllCoroutines();
-            GameManager.Instance.gameState = GameState.NoWave;
+            GM.gameState = GameState.NoWave;
+            UIManager.Instance.UpdateWaveButtonIcon();
         }
         
         if (Input.GetKeyDown(KeyCode.P))
@@ -46,7 +54,7 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
     public void CallNextWave()
     {
-        if(GameManager.Instance.gameState == GameState.WaveComing) return;
+        if(GM.gameState == GameState.WaveComing) return;
         
         StartCoroutine(SendWaveCoroutine(allWaves.allWaves[waveNumber]));
         waveNumber++;
@@ -55,7 +63,7 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
     public void AutoLaunchNextWaveCheck()
     {
-        if (GameManager.Instance.gameSpeed == GameSpeed.AutoLaunch)
+        if (GM.gameSpeed == GameSpeed.AutoLaunch)
         {
             CallNextWave();
         }
@@ -63,7 +71,7 @@ public class EnemiesManager : MySingleton<EnemiesManager>
 
     private IEnumerator SendWaveCoroutine(AllWaves.SingleWave wave)
     {
-        GameManager.Instance.gameState = GameState.WaveComing;
+        GM.gameState = GameState.WaveComing;
         
         foreach (AllWaves.EnemyGroup enemyGroup in wave.allgroup)
         {
@@ -72,7 +80,7 @@ public class EnemiesManager : MySingleton<EnemiesManager>
         
         yield return new WaitUntil(() => allBalloons.Count == 0);
         
-        GameManager.Instance.gameState = GameState.NoWave;
+        GM.gameState = GameState.NoWave;
         OnEndOfGame.Invoke();
     }
     

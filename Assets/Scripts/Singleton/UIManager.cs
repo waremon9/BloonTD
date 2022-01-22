@@ -24,6 +24,13 @@ public class UIManager : MySingleton<UIManager>
     [SerializeField] private Sprite activeDoubleSpeedSprite;
     [SerializeField] private Sprite activeAutoNextWaveSpeedSprite;
 
+    private GameManager GM;
+
+    private void Start()
+    {
+        GM = GameManager.Instance;
+    }
+
     private void Update()
     {
         if (towerFromShop)
@@ -69,7 +76,7 @@ public class UIManager : MySingleton<UIManager>
             if (Physics2D.OverlapCircleAll(towerFromShop.transform.position, towerFromShop.hitBox.radius).Length > 1) return;
                 
             towerFromShop.SetEnableTower(true);
-            GameManager.Instance.SpendMoney(towerFromShop.cost);
+            GM.SpendMoney(towerFromShop.cost);
 
             selectedTower = towerFromShop;
             towerFromShop = null;
@@ -78,7 +85,6 @@ public class UIManager : MySingleton<UIManager>
 
     private void CheckClickOnTower()
     {
-
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if(hit)
         {
@@ -101,7 +107,7 @@ public class UIManager : MySingleton<UIManager>
     {
         if (!selectedTower) return;
         
-        selectedTower.EnableRangeIndicator(false);
+        selectedTower.TowerGetUnselected();
         selectedTower = null;
     }
 
@@ -109,15 +115,15 @@ public class UIManager : MySingleton<UIManager>
     {
         UnselectTower();
         selectedTower = tower;
-        selectedTower.EnableRangeIndicator(true);
+        selectedTower.TowerGetSelected();
     }
 
     public void selectTowerInShop(BaseTower prefab)
     {
-        if (!GameManager.Instance.HasEnoughMoney(prefab.cost)) return;
+        if (!GM.HasEnoughMoney(prefab.cost)) return;
         
         Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        towerFromShop = Instantiate(prefab, new Vector3(position.x, position.y, 0), Quaternion.identity, GameManager.Instance.towerParent);
+        towerFromShop = Instantiate(prefab, new Vector3(position.x, position.y, 0), Quaternion.identity, GM.towerParent);
         
         towerFromShop.EnableRangeIndicator(true);
         towerFromShop.SetEnableTower(false);
@@ -135,26 +141,26 @@ public class UIManager : MySingleton<UIManager>
 
     public void OnWaveButtonClick()
     {
-        if (GameManager.Instance.gameState == GameState.NoWave)
+        if (GM.gameState == GameState.NoWave)
         {
             EnemiesManager.Instance.CallNextWave();
         }
         else
         {
-            GameManager.Instance.ChangeGameSpeed();
+            GM.ChangeGameSpeed();
         }
         UpdateWaveButtonIcon();
     }
 
     public void UpdateWaveButtonIcon()
     {
-        if (GameManager.Instance.gameState == GameState.NoWave)
+        if (GM.gameState == GameState.NoWave)
         {
             waveButtonIcon.sprite = playSprite;
         }
         else
         {
-            switch (GameManager.Instance.gameSpeed)
+            switch (GM.gameSpeed)
             {
                 case GameSpeed.Normal:
                     waveButtonIcon.sprite = inactiveDoubleSpeedSprite;

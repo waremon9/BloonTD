@@ -6,4 +6,7 @@ public abstract class NoProjectileTower : BaseTower
 {
     [Header("Damage")]
     [SerializeField] protected int damage;
+
+    [Header("Attack type")]
+    [SerializeField] protected ProjectileType type;
 }
