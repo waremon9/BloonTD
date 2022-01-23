@@ -18,6 +18,7 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     public Transform enemiesParent;
 
     [Header("Waves")]
+    [SerializeField] private RoundText roundText;
     [SerializeField] private AllWaves allWaves;
     public int waveNumber=0;
 
@@ -58,6 +59,9 @@ public class EnemiesManager : MySingleton<EnemiesManager>
         
         StartCoroutine(SendWaveCoroutine(allWaves.allWaves[waveNumber]));
         waveNumber++;
+
+        roundText.StartCoroutine(roundText.AnimateRoundText());
+        
         if (waveNumber >= allWaves.allWaves.Count) waveNumber = allWaves.allWaves.Count - 1;
     }
 
