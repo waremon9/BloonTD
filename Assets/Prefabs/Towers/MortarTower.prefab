@@ -138,6 +138,7 @@ MonoBehaviour:
   damage: 1
   type: 1
   whereToShoot: {fileID: 1317215308525780539}
+  towerTransform: {fileID: 6855022499071791204}
   explosionRange: 1.1
   explosionEffect: {fileID: 3521749358307615517, guid: 8da7afe2462005740b337fcab6378397, type: 3}
   spread: 1

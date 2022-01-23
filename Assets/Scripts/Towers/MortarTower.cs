@@ -10,6 +10,7 @@ public class MortarTower : NoProjectileTower
 {
     [Header("Special property")]
     [SerializeField] private Transform whereToShoot;
+    [SerializeField] private Transform towerTransform;
     [SerializeField] private float explosionRange;
     [SerializeField] private ParticleSystem explosionEffect;
     [SerializeField] private float spread;
@@ -37,6 +38,7 @@ public class MortarTower : NoProjectileTower
                 if (!EventSystem.current.IsPointerOverGameObject())
                 {
                     whereToShootBeforeUpdate = whereToShoot.position;
+                    towerTransform.up = whereToShootBeforeUpdate - transform.position;
                 }
                 else
                 {
