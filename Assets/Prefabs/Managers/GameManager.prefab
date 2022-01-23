@@ -43,5 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 341910845ccca754baa054585e451b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileParent: {fileID: 0}
   particleParent: {fileID: 0}
+  towerParent: {fileID: 0}
+  noCollisionColor: {fileID: 0}
+  collisionColor: {fileID: 0}
+  health: 10000
+  money: 90000
+  ui: {fileID: 0}
+  gameState: 0
+  gameSpeed: 0
+  skin: {fileID: 11400000, guid: 67a68d9daed891d4a89ee2ddc3468939, type: 2}

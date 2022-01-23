@@ -41,6 +41,13 @@ public class GameManager : MySingleton<GameManager>
         }
     }
 
+    public GUISkin skin;
+    private void OnGUI()
+    {
+        GUILayout.Box("FPS : "+ Math.Round(1/Time.deltaTime,1) , style:skin.box);
+        GUILayout.Box("Qte balloon : "+ EnemiesManager.Instance.GetAllBalloon().Count, style:skin.box);
+    }
+
     public void LooseHealth(int damage)
     {
         health = Mathf.Clamp(health - damage, 0, 9999999);

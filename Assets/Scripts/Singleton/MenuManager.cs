@@ -6,10 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MySingleton<MenuManager>
 {
-    private bool _DoDestroyOnLoad = true;
     public override bool DoDestroyOnLoad
     {
-        get { return _DoDestroyOnLoad; }
+        get { return true; }
     }
 
     public void OnExitClicked()
