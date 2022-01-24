@@ -61,7 +61,7 @@ public class MortarTower : NoProjectileTower
     {
         Vector3 impactPoint = whereToShootBeforeUpdate + (Vector3)Random.insideUnitCircle * spread;
         p = impactPoint;
-        foreach (BaseBalloon b in EnemiesManager.Instance.enemiesParent.GetComponentsInChildren<BaseBalloon>())
+        foreach (BaseBalloon b in EnemiesManager.Instance.GetAllBalloon())
         {
             if (Vector3.Distance(b.transform.position, impactPoint) <= explosionRange + b.hitBoxRadius)
             {

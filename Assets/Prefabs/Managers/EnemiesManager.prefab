@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1298686576386473847}
   - component: {fileID: 4670173040631892118}
-  - component: {fileID: 3083756307416504049}
   m_Layer: 0
   m_Name: EnemiesManager
   m_TagString: Untagged
@@ -55,17 +54,3 @@ MonoBehaviour:
   OnEndOfGame:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3083756307416504049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5502861125742745684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90a94ff6531c1c045860aa98ab047438, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  size: 0

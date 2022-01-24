@@ -43,5 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab63da67dc4932e428d7be847ca4b57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balloon: {fileID: 0}
+  singleEnemy: {fileID: 0}
+  multiEnemies: {fileID: 0}
   qte: 0
+  getRBE: {fileID: 0}
+  RBE: 0
+  Gamespeed: 1

@@ -12,6 +12,8 @@ public class BaseBalloon : MonoBehaviour
     public int hpActual;
 
     public List<BaseProjectile> ProjectilesHit;
+    
+    public ObjectPool poolRef;
 
     public void UpdateStats(BasicBalloonScriptable basicBalloonStats)
     {
@@ -42,6 +44,8 @@ public class BaseBalloon : MonoBehaviour
             hitBoxRadius = collider.radius * transform.localScale.x;
             collider.enabled = false;
         }
+
+        poolRef = EnemiesManager.Instance.poolPopParticle;
     }
     
     private void Update()
@@ -72,19 +76,12 @@ public class BaseBalloon : MonoBehaviour
 
     protected void PlayPopEffect()
     {
-        if (EnemiesManager.Instance.BalloonPopEffect && GameManager.Instance.particleParent)
-        {
-            ParticleSystem temp = Instantiate(EnemiesManager.Instance.BalloonPopEffect, transform.position,
-                Quaternion.identity, GameManager.Instance.particleParent);
-        }
-        if (!EnemiesManager.Instance.BalloonPopEffect)
-        {
-            Debug.LogError("Missing particle system prefab : " + name);
-        }
-        if (!GameManager.Instance.particleParent)
-        {
-            Debug.LogError("No particle parent reference in gameManager");
-        }
+        if(poolRef == null) poolRef = EnemiesManager.Instance.poolPopParticle;
+        GameObject poolObject = poolRef.GetFromPool();
+        ParticleSystem partSys = poolObject.GetComponent<ParticleSystem>();
+        partSys.transform.position = transform.position;
+        partSys.Play();
+        EnemiesManager.Instance.particleNumber++;
     }
     
     protected virtual void LayerPop(int damage)

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using SplineMesh;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class EnemiesManager : MySingleton<EnemiesManager>
 {
@@ -14,29 +15,31 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     [Header("Level path")]
     public Spline path;
     
-    [Header("Parent transform")]
-    public Transform enemiesParent;
-
     [Header("Waves")]
     [SerializeField] private RoundText roundText;
     [SerializeField] private AllWaves allWaves;
     public int waveNumber=0;
 
     [Header("balloon")]
-    [SerializeField] private ObjectPool balloonPool;
     public BaseBalloon balloonPrefab;
+    public ObjectPool poolBalloon;
 
     [Header("Particles")]
     [SerializeField] public ParticleSystem BalloonPopEffect;
+    public ObjectPool poolPopParticle;
 
     [Header("Event")]
     public UnityEvent OnEndOfGame;
 
     private GameManager GM;
 
+    [HideInInspector] public int particleNumber = 0;
+    
     private void Start()
     {
         GM = GameManager.Instance;
+        poolBalloon.Initialize(balloonPrefab.gameObject);
+        poolPopParticle.Initialize(BalloonPopEffect.gameObject);
     }
 
     private void Update()
@@ -103,17 +106,8 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     //To spawn new balloon
     public void EnemieSpawnAtStart(BasicBalloonScriptable scriptable)
     {
-        GameObject balloon = balloonPool.GetFromPool();
-        BaseBalloon baseBalloon;
-        
-        if (balloon)
-        {
-            baseBalloon = balloon.GetComponent<BaseBalloon>();
-        }
-        else
-        {
-            baseBalloon = Instantiate(balloonPrefab, enemiesParent);
-        }
+        GameObject balloon = poolBalloon.GetFromPool();
+        BaseBalloon baseBalloon = balloon.GetComponent<BaseBalloon>();;
 
         baseBalloon.UpdateStats(scriptable);
         baseBalloon.followSpline.dist = 0;
@@ -125,18 +119,9 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     //To spawn balloon on balloon death
     public void EnemieSpawnFromRelease(BasicBalloonScriptable scriptable, BaseBalloon parent ,float offset, int damage)
     {
-        GameObject balloon = balloonPool.GetFromPool();
-        BaseBalloon baseBalloon;
+        GameObject balloon = poolBalloon.GetFromPool();
+        BaseBalloon baseBalloon = balloon.GetComponent<BaseBalloon>();
         
-        if (balloon)
-        {
-            baseBalloon = balloon.GetComponent<BaseBalloon>();
-        }
-        else
-        {
-            baseBalloon = Instantiate(balloonPrefab, enemiesParent);
-        }
-
         baseBalloon.UpdateStats(scriptable);
         baseBalloon.followSpline.dist = parent.followSpline.dist - offset;
         baseBalloon.followSpline.UpdatePosition();
@@ -151,7 +136,7 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     {
         allBalloons.Remove(bs);
         
-        balloonPool.ReturnToPool(bs.gameObject);
+        poolBalloon.ReturnToPool(bs.gameObject);
     }
 
     public bool AtLeastOneBalloonAlive()
@@ -227,5 +212,11 @@ public class EnemiesManager : MySingleton<EnemiesManager>
         }
 
         return target;
+    }
+
+    public void ParticlePopBackToPool(GameObject obj)
+    {
+        poolPopParticle.ReturnToPool(obj);
+        particleNumber--;
     }
 }

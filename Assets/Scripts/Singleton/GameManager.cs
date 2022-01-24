@@ -28,7 +28,7 @@ public class GameManager : MySingleton<GameManager>
     {
         if (!ui)
         {
-            ui = GameObject.FindObjectOfType<UIManager>();
+            ui = FindObjectOfType<UIManager>();
             if (!ui)
             {
                 Debug.Log("No UIManager in scene");
@@ -46,6 +46,7 @@ public class GameManager : MySingleton<GameManager>
     {
         GUILayout.Box("FPS : "+ Math.Round(1/Time.deltaTime,1) , style:skin.box);
         GUILayout.Box("Qte balloon : "+ EnemiesManager.Instance.GetAllBalloon().Count, style:skin.box);
+        GUILayout.Box("Qte particle : "+ EnemiesManager.Instance.particleNumber, style:skin.box);
     }
 
     public void LooseHealth(int damage)

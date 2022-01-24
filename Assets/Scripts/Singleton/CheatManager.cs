@@ -20,7 +20,7 @@ public class CheatManager : MySingleton<CheatManager>
     public BasicBalloonScriptable getRBE;
     public int RBE;
 
-    [Header("GameSpeed")] [Range(0, 2)] public float Gamespeed;
+    [Header("GameSpeed")] [Range(0, 2)] public float Gamespeed = 1;
 
     private void Start()
     {
