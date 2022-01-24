@@ -4188,7 +4188,7 @@ PrefabInstance:
     - target: {fileID: 3936758222307391058, guid: 3d55a9f5a2d922e418d11f0c8c41c538, type: 3}
       propertyPath: singleEnemy
       value: 
-      objectReference: {fileID: 11400000, guid: 33f980ab268305646adb7fc2cd0cef96, type: 2}
+      objectReference: {fileID: 11400000, guid: 709ea835675c30142a63479d096a8fa1, type: 2}
     - target: {fileID: 3936758222307391058, guid: 3d55a9f5a2d922e418d11f0c8c41c538, type: 3}
       propertyPath: basicBalloon
       value: 
@@ -4300,7 +4300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3083756307416504049, guid: 2bbd2911714448a4cadf6284e63694a8, type: 3}
       propertyPath: size
-      value: 250
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 3083756307416504049, guid: 2bbd2911714448a4cadf6284e63694a8, type: 3}
       propertyPath: prefab
