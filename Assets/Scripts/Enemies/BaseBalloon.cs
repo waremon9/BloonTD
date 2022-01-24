@@ -126,7 +126,6 @@ public class BaseBalloon : MonoBehaviour
     protected void Death()
     {
         EnemiesManager.Instance.BalloonDead(this);
-        Destroy(gameObject);
     }
 
     public float GetWorlHitBoxRadius()

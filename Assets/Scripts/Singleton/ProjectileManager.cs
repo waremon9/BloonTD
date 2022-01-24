@@ -11,17 +11,9 @@ public class ProjectileManager : MySingleton<ProjectileManager>
 
     private List<BaseProjectile> AllProjectile = new List<BaseProjectile>();
 
-    private void Update()
-    {
-        //CheckCollisionProjectileBalloon();
-    }
-
-    private int hit = 0;
     private void FixedUpdate()
     {
-        hit = 0;
         CheckCollisionProjectileBalloon();
-        Debug.Log(hit);
     }
 
     public void AddProjectile(BaseProjectile proj)
@@ -58,7 +50,6 @@ public class ProjectileManager : MySingleton<ProjectileManager>
                 if (Vector2.Distance(balloon.transform.position, projectile.transform.position) <=
                     balloon.hitBoxRadius + projectile.hitBoxRadius)
                 {
-                    hit++;
                     if (projectile.GetType() == typeof(TackPile))
                     {
                         projectile.BalloonHit(balloon);

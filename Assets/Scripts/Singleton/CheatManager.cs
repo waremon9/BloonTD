@@ -20,6 +20,7 @@ public class CheatManager : MySingleton<CheatManager>
     public BasicBalloonScriptable getRBE;
     public int RBE;
 
+    [Header("GameSpeed")] [Range(0, 2)] public float Gamespeed;
 
     private void Start()
     {
@@ -55,5 +56,6 @@ public class CheatManager : MySingleton<CheatManager>
     private void OnValidate()
     {
         if(getRBE) RBE = BaseBalloon.GetBalloonRBE(getRBE);
+        Time.timeScale = Gamespeed;
     }
 }

@@ -22,9 +22,10 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     [SerializeField] private AllWaves allWaves;
     public int waveNumber=0;
 
-    [Header("Prefab")]
+    [Header("balloon")]
+    [SerializeField] private ObjectPool balloonPool;
     public BaseBalloon balloonPrefab;
-    
+
     [Header("Particles")]
     [SerializeField] public ParticleSystem BalloonPopEffect;
 
@@ -102,29 +103,55 @@ public class EnemiesManager : MySingleton<EnemiesManager>
     //To spawn new balloon
     public void EnemieSpawnAtStart(BasicBalloonScriptable scriptable)
     {
-        BaseBalloon bb = Instantiate(balloonPrefab, enemiesParent);
+        GameObject balloon = balloonPool.GetFromPool();
+        BaseBalloon baseBalloon;
         
-        bb.UpdateStats(scriptable);
-        allBalloons.Add(bb);
+        if (balloon)
+        {
+            baseBalloon = balloon.GetComponent<BaseBalloon>();
+        }
+        else
+        {
+            baseBalloon = Instantiate(balloonPrefab, enemiesParent);
+        }
+
+        baseBalloon.UpdateStats(scriptable);
+        baseBalloon.followSpline.dist = 0;
+        baseBalloon.followSpline.UpdatePosition();
+        baseBalloon.ProjectilesHit.Clear();
+        allBalloons.Add(baseBalloon);
     }
     
     //To spawn balloon on balloon death
     public void EnemieSpawnFromRelease(BasicBalloonScriptable scriptable, BaseBalloon parent ,float offset, int damage)
     {
-        BaseBalloon bb = Instantiate(balloonPrefab, enemiesParent);
+        GameObject balloon = balloonPool.GetFromPool();
+        BaseBalloon baseBalloon;
         
-        bb.UpdateStats(scriptable);
-        bb.followSpline.dist = parent.followSpline.dist - offset;
-        bb.ProjectilesHit = new List<BaseProjectile>(parent.ProjectilesHit);
+        if (balloon)
+        {
+            baseBalloon = balloon.GetComponent<BaseBalloon>();
+        }
+        else
+        {
+            baseBalloon = Instantiate(balloonPrefab, enemiesParent);
+        }
+
+        baseBalloon.UpdateStats(scriptable);
+        baseBalloon.followSpline.dist = parent.followSpline.dist - offset;
+        baseBalloon.followSpline.UpdatePosition();
+        baseBalloon.ProjectilesHit = new List<BaseProjectile>(parent.ProjectilesHit);
         
-        allBalloons.Add(bb);
+        allBalloons.Add(baseBalloon);
         
-        bb.Hit(damage);
+        baseBalloon.Hit(damage);
     }
 
     public void BalloonDead(BaseBalloon bs)
     {
         allBalloons.Remove(bs);
+        
+        balloonPool.ReturnToPool(bs.gameObject);
     }
 
     public bool AtLeastOneBalloonAlive()

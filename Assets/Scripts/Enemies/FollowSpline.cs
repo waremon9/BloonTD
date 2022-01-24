@@ -74,9 +74,8 @@ public class FollowSpline : MonoBehaviour
 
     private void BalloonReachEnd()
     {
-        EnemiesManager.Instance.BalloonDead(GetComponent<BaseBalloon>());
         GameManager.Instance.LooseHealth(balloon.GetBalloonRBE());
             
-        Destroy(gameObject);//reached the end of the spline
+        EnemiesManager.Instance.BalloonDead(GetComponent<BaseBalloon>());
     }
 }

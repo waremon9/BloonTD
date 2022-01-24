@@ -22,16 +22,28 @@ public class ObjectPool : MonoBehaviour
 
     public GameObject GetFromPool()
     {
-        if (poolActive.Count == 0) return null;
+        if (poolInactive.Count == 0) return null;
 
         GameObject obj = poolInactive[0];
+        poolInactive.RemoveAt(0);
+        
         obj.SetActive(true);
+        poolActive.Add(obj);
 
         return obj;
     }
     
     public void ReturnToPool(GameObject obj)
     {
-        poolActive.Add(obj);
+        if (poolActive.Count >= size)
+        {
+            Destroy(obj);
+            return;
+        }
+
+        poolActive.Remove(obj);
+        
+        obj.SetActive(false);
+        poolInactive.Add(obj);
     }
 }

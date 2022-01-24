@@ -4298,6 +4298,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3083756307416504049, guid: 2bbd2911714448a4cadf6284e63694a8, type: 3}
+      propertyPath: size
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083756307416504049, guid: 2bbd2911714448a4cadf6284e63694a8, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 1332568381695194125, guid: 73c5b766ab194d24f9cabbe0037859d4, type: 3}
     - target: {fileID: 4670173040631892118, guid: 2bbd2911714448a4cadf6284e63694a8, type: 3}
       propertyPath: e
       value: 
@@ -4318,6 +4326,10 @@ PrefabInstance:
       propertyPath: waveNumber
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4670173040631892118, guid: 2bbd2911714448a4cadf6284e63694a8, type: 3}
+      propertyPath: balloonPool
+      value: 
+      objectReference: {fileID: 741644848796011490}
     - target: {fileID: 4670173040631892118, guid: 2bbd2911714448a4cadf6284e63694a8, type: 3}
       propertyPath: balloonPrefab
       value: 
@@ -4436,6 +4448,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bbd2911714448a4cadf6284e63694a8, type: 3}
+--- !u!114 &741644848796011490 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3083756307416504049, guid: 2bbd2911714448a4cadf6284e63694a8, type: 3}
+  m_PrefabInstance: {fileID: 741644848796011489}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90a94ff6531c1c045860aa98ab047438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1774707876700621490
 PrefabInstance:
   m_ObjectHideFlags: 0
